@@ -2,31 +2,63 @@
 
 namespace App\Models;
 
-// use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Database\Factories\UserFactory;
-use Illuminate\Database\Eloquent\Attributes\Fillable;
-use Illuminate\Database\Eloquent\Attributes\Hidden;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
-#[Fillable(['name', 'email', 'password'])]
-#[Hidden(['password', 'remember_token'])]
 class User extends Authenticatable
 {
     /** @use HasFactory<UserFactory> */
     use HasFactory, Notifiable;
 
     /**
-     * Get the attributes that should be cast.
+     * Tabla asociada al modelo en la base de datos.
+     */
+    protected $table = 'usuarios';
+
+    /**
+     * Los atributos que son asignables en masa.
+     *
+     * @var array<int, string>
+     */
+    protected $fillable = [
+        'nombre',
+        'apellidos',
+        'correo',
+        'telefono',
+        'usuario',
+        'contrasena_hash',
+        'estado',
+    ];
+
+    /**
+     * Los atributos que deben ocultarse para la serialización.
+     *
+     * @var array<int, string>
+     */
+    protected $hidden = [
+        'contrasena_hash',
+        'remember_token',
+    ];
+
+    /**
+     * Obtiene la contraseña para la autenticación de Laravel.
+     */
+    public function getAuthPassword()
+    {
+        return $this->contrasena_hash;
+    }
+
+    /**
+     * Atributos casteados.
      *
      * @return array<string, string>
      */
     protected function casts(): array
     {
         return [
-            'email_verified_at' => 'datetime',
-            'password' => 'hashed',
+            'contrasena_hash' => 'hashed',
         ];
     }
 }
