@@ -1,0 +1,497 @@
+<!DOCTYPE html><html lang="es" style=""><head><meta charset="utf-8"><meta content="width=device-width, initial-scale=1.0" name="viewport"><meta content="web_standard" name="shell-type"><title>Vitalis PharmaSys</title><link href="https://fonts.googleapis.com" rel="preconnect"><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&amp;display=swap" rel="stylesheet"><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{"colors":{"outline-variant":"#c1c7cc","tertiary-fixed":"#cce5ff","on-primary-fixed":"#001f2b","error":"#ba1a1a","secondary-container":"#99e9fd","inverse-surface":"#2d3133","surface-container-high":"#e5e9eb","tertiary":"#001423","surface-dim":"#d7dadc","on-error":"#ffffff","on-tertiary":"#ffffff","secondary-fixed":"#a9edff","on-background":"#181c1e","primary-container":"#022b3a","on-secondary-fixed":"#001f26","inverse-primary":"#a9ccdf","on-secondary":"#ffffff","surface-container-highest":"#e0e3e5","background":"#f7fafc","secondary-fixed-dim":"#83d2e6","surface":"#f7fafc","on-surface-variant":"#42484b","surface-bright":"#f7fafc","on-primary-container":"#7193a5","secondary":"#006879","tertiary-fixed-dim":"#aecae5","on-tertiary-fixed":"#001d31","on-secondary-fixed-variant":"#004e5b","surface-container-lowest":"#ffffff","on-primary-fixed-variant":"#294b5b","primary-fixed-dim":"#a9ccdf","on-tertiary-fixed-variant":"#2e4960","surface-container-low":"#f1f4f6","on-surface":"#181c1e","tertiary-container":"#0a293f","on-error-container":"#93000a","primary-fixed":"#c4e8fc","inverse-on-surface":"#eef1f3","on-secondary-container":"#006b7c","on-tertiary-container":"#7691ab","outline":"#72787c","error-container":"#ffdad6","on-primary":"#ffffff","surface-variant":"#e0e3e5","primary":"#00151f","surface-container":"#ebeef0","surface-tint":"#416373"},"borderRadius":{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},"spacing":{"margin":"2rem","space-sm":"0.5rem","margin-mobile":"1rem","gutter-mobile":"1rem","space-xl":"2.5rem","space-md":"1rem","gutter":"1.5rem","space-lg":"1.5rem","space-xs":"0.25rem"},"fontFamily":{"display-hero-mobile":["Plus Jakarta Sans"],"body-md":["Plus Jakarta Sans"],"headline-lg":["Plus Jakarta Sans"],"display-hero":["Plus Jakarta Sans"],"body-lg":["Plus Jakarta Sans"],"label-md":["Plus Jakarta Sans"],"body-sm":["Plus Jakarta Sans"],"label-sm":["Plus Jakarta Sans"],"headline-sm":["Plus Jakarta Sans"],"headline-md":["Plus Jakarta Sans"],"title-md":["Plus Jakarta Sans"]},"fontSize":{"display-hero-mobile":["32px",{"lineHeight":"40px","letterSpacing":"-0.01em","fontWeight":"800"}],"body-md":["14px",{"lineHeight":"22px","fontWeight":"400"}],"headline-lg":["32px",{"lineHeight":"40px","letterSpacing":"-0.015em","fontWeight":"700"}],"display-hero":["48px",{"lineHeight":"56px","letterSpacing":"-0.02em","fontWeight":"800"}],"body-lg":["16px",{"lineHeight":"26px","fontWeight":"400"}],"label-md":["13px",{"lineHeight":"18px","letterSpacing":"0.01em","fontWeight":"600"}],"body-sm":["13px",{"lineHeight":"18px","fontWeight":"400"}],"label-sm":["11px",{"lineHeight":"16px","letterSpacing":"0.04em","fontWeight":"700"}],"headline-sm":["20px",{"lineHeight":"28px","fontWeight":"600"}],"headline-md":["24px",{"lineHeight":"32px","letterSpacing":"-0.01em","fontWeight":"600"}],"title-md":["16px",{"lineHeight":"24px","fontWeight":"600"}]}}}};</script></head><body class="bg-surface font-body-md text-on-surface antialiased"><header class="fixed top-0 left-0 w-full z-50 bg-surface-container-lowest border-b border-surface-variant"><div class="h-16 w-full px-margin flex items-center justify-between gap-space-md"><div class="flex items-center gap-space-md shrink-0"><img alt="PharmaSys Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBJSmVc0yj1B7WoPYZtskhW9lx8UaT_bfIoO37Y4967E3StnlkC1AGwGpaQ0VrjT313TZczNyKVOVzdMbusQzOjlF8Cc5bBX2_s6_zWbBVSDNKaFVMAxUiLdicpb54DooICz17P7c_IipZytgMd0bUSlMr7Vxg4XYepaCKe7Ti1IVkRmTrheIT3aSTPt_e3rxF-kU-Rw6ZHdt-Vk7Ls3rpr8oESI-DiqT6Z1gRZeIj7"><div class="flex flex-col"><span class="font-title-md text-title-md text-primary tracking-tight">Vitalis PharmaSys</span><span class="font-label-sm text-label-sm text-on-surface-variant -mt-space-xs">Gestión Integral de Salud</span></div></div><div class="flex-1 max-w-2xl mx-space-md hidden md:flex items-center"><div class="w-full flex items-center bg-surface-container-low rounded-full px-space-md py-space-xs border border-outline-variant/30 focus-within:border-secondary focus-within:bg-surface-container-lowest transition-all"><span class="material-symbols-outlined text-on-surface-variant text-[20px] mr-space-sm">search</span><input class="w-full bg-transparent border-none outline-none font-body-md text-body-md text-on-surface placeholder:text-on-surface-variant" placeholder="Buscar medicamentos, lotes, clientes o recetas..." type="text"><div class="flex items-center gap-space-xs bg-surface-container-highest px-space-sm py-0.5 rounded text-on-surface-variant font-label-sm text-label-sm shrink-0"><span class="material-symbols-outlined text-[12px]">keyboard_command_key</span><span class="">K</span></div></div></div><div class="flex items-center gap-space-md shrink-0"><div class="hidden xl:flex items-center gap-space-xs px-space-md py-space-xs bg-surface-container-low rounded-lg"><span class="material-symbols-outlined text-secondary text-[18px]">store</span><div class="flex flex-col"><span class="font-label-sm text-label-sm text-on-surface font-bold">Sucursal Central</span><span class="font-label-sm text-label-sm text-on-surface-variant">Caja 01 • En Turno</span></div></div><button class="relative p-space-sm text-on-surface-variant hover:text-on-surface hover:bg-surface-container rounded-lg transition-colors" title="Notificaciones" type="button"><span class="material-symbols-outlined text-[22px]">notifications</span><span class="absolute top-1 right-1 w-4 h-4 bg-error text-on-error font-label-sm text-[10px] font-bold rounded-full flex items-center justify-center">3</span></button><button class="p-space-sm text-on-surface-variant hover:text-primary hover:bg-surface-container rounded-xl transition-colors" title="Lanzador de Módulos (9 puntos)" type="button"><span class="material-symbols-outlined text-[24px]">apps</span></button><div class="h-6 w-px bg-surface-variant hidden sm:block"></div><div class="flex items-center gap-space-sm pl-space-xs"><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div><div class="hidden lg:flex flex-col text-left"><span class="font-label-md text-label-md text-on-surface">Dr. Alejandro Morales</span><span class="font-label-sm text-label-sm text-on-surface-variant">Farmacéutico Reg.</span></div></div></div></div><nav class="hidden" data-active-classes="text-secondary font-bold border-b-2 border-secondary"><a aria-current="page" class="text-secondary font-bold border-b-2 border-secondary" data-path="dashboard-general" href="#">Dashboard</a><a class="text-on-surface-variant hover:text-on-surface" data-path="dispensacion-recetas" href="#">Dispensación</a><a class="text-on-surface-variant hover:text-on-surface" data-path="inventario-medicamentos" href="#">Inventario</a><a class="text-on-surface-variant hover:text-on-surface" data-path="caja-facturacion" href="#">Caja</a><a class="text-on-surface-variant hover:text-on-surface" data-path="pacientes-clientes" href="#">Pacientes</a><a class="text-on-surface-variant hover:text-on-surface" data-path="reportes-auditoria" href="#">Reportes</a></nav></header><main class="w-full pt-16 min-h-[calc(100vh-56px)] bg-surface"><div class="flex flex-col w-full">
+<!-- Sub-header / Public Portal Nav bar matching wireframe "barra de navegación superior (para el portal publico)" -->
+<section class="w-full bg-surface-container-lowest shadow-sm z-30 sticky top-16">
+<div class="max-w-7xl mx-auto px-gutter flex flex-col md:flex-row items-center justify-between py-3 gap-3">
+<!-- Portal Brand Identity -->
+<div class="flex items-center gap-space-md">
+<div class="w-10 h-10 rounded-xl bg-primary-container flex items-center justify-center text-secondary-fixed shadow-sm">
+<span class="material-symbols-outlined text-[24px]">local_pharmacy</span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm text-primary tracking-tight font-extrabold flex items-center gap-1.5">
+            Vitalis <span class="text-secondary font-normal">Farmacia &amp; Bienestar</span>
+</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant flex items-center gap-1">
+<span class="w-2 h-2 rounded-full bg-secondary inline-block animate-pulse"></span>
+            Farmacia de Turno Abierta 24/7
+          </span>
+</div>
+</div>
+<!-- Navigation Links from wireframe: inicio · productos · promociones · servicios · contacto -->
+<nav class="flex items-center flex-wrap justify-center gap-1 sm:gap-2">
+<a class="px-4 py-2 rounded-lg font-label-md text-label-md bg-secondary text-on-secondary shadow-sm transition-all flex items-center gap-1.5" href="#inicio">
+<span class="material-symbols-outlined text-[16px]">home</span> Inicio
+        </a>
+<a class="px-3 py-2 rounded-lg font-label-md text-label-md text-on-surface-variant hover:text-primary hover:bg-surface-container transition-all" href="#productos">
+          Productos
+        </a>
+<a class="px-3 py-2 rounded-lg font-label-md text-label-md text-on-surface-variant hover:text-primary hover:bg-surface-container transition-all flex items-center gap-1" href="#promociones">
+          Promociones
+          <span class="px-1.5 py-0.5 rounded-full bg-error-container text-on-error-container font-label-sm text-[10px] font-bold">-35%</span>
+</a>
+<a class="px-3 py-2 rounded-lg font-label-md text-label-md text-on-surface-variant hover:text-primary hover:bg-surface-container transition-all" href="#servicios">
+          Servicios
+        </a>
+<a class="px-3 py-2 rounded-lg font-label-md text-label-md text-on-surface-variant hover:text-primary hover:bg-surface-container transition-all" href="#contacto">
+          Contacto
+        </a>
+</nav>
+<!-- CTA Iniciar Sesión from wireframe -->
+<div class="flex items-center gap-space-sm shrink-0">
+
+<button class="flex items-center gap-2 px-5 py-2.5 rounded-xl font-label-md text-label-md bg-secondary text-on-secondary hover:bg-primary-container hover:text-secondary-fixed transition-all shadow-md group" type="button">
+<span class="material-symbols-outlined text-[18px] group-hover:rotate-12 transition-transform">lock_person</span>
+<span class="">Iniciar Sesión</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Hero Section with subtle 3D aesthetic and medical translucent styling -->
+<section class="w-full relative overflow-hidden py-12 lg:py-20 bg-gradient-to-b from-surface via-surface-container-low to-surface" id="inicio">
+<!-- Ambient 3D spheres & teal/sky glow blobs -->
+<div class="absolute -top-24 left-1/4 w-96 h-96 rounded-full bg-tertiary-fixed/30 blur-3xl pointer-events-none"></div>
+<div class="absolute bottom-0 right-10 w-80 h-80 rounded-full bg-secondary-fixed/40 blur-3xl pointer-events-none"></div>
+<div class="max-w-7xl mx-auto px-gutter grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10">
+<!-- Left Column: Copy & High-impact CTAs -->
+<div class="lg:col-span-7 flex flex-col space-y-6">
+<div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-surface-container-lowest shadow-sm self-start">
+<span class="material-symbols-outlined text-secondary text-[18px]">verified</span>
+<span class="font-label-sm text-label-sm text-secondary tracking-wide uppercase font-bold">Certificación Sanitaria ISP &amp; Buenas Prácticas</span>
+</div>
+<h1 class="font-display-hero text-display-hero text-primary tracking-tight leading-tight">
+          Tu salud y bienestar en <span class="text-secondary bg-gradient-to-r from-secondary to-primary-container bg-clip-text text-transparent">manos expertas</span>
+</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl">
+          Atención farmacéutica personalizada, dispensación segura de medicamentos con receta médica digital y el catálogo más confiable para el cuidado de toda tu familia.
+        </p>
+<!-- CTA Action Buttons -->
+<div class="flex flex-wrap items-center gap-4 pt-2">
+<a class="px-6 py-3.5 rounded-xl font-label-md text-label-md bg-secondary text-on-secondary hover:bg-primary-container shadow-lg shadow-secondary/20 hover:shadow-xl transition-all flex items-center gap-2" href="#productos">
+<span class="material-symbols-outlined text-[20px]">medication</span>
+<span class="">Explorar Catálogo de Medicamentos</span>
+</a>
+<a class="px-6 py-3.5 rounded-xl font-label-md text-label-md bg-tertiary-fixed text-on-tertiary-fixed hover:bg-secondary-fixed shadow-sm transition-all flex items-center gap-2" href="#receta">
+<span class="material-symbols-outlined text-[20px]">upload_file</span>
+<span class="">Subir Receta Médica</span>
+</a>
+</div>
+<!-- Social Proof Micro-metrics -->
+<div class="pt-6 grid grid-cols-3 gap-4 border-t border-surface-container max-w-lg">
+<div>
+<span class="font-headline-md text-headline-md text-primary font-bold">99.8%</span>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Disponibilidad de stock</p>
+</div>
+<div>
+<span class="font-headline-md text-headline-md text-secondary font-bold">&lt; 45 min</span>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Despacho exprés</p>
+</div>
+<div>
+<span class="font-headline-md text-headline-md text-primary font-bold">120k+</span>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Pacientes atendidos</p>
+</div>
+</div>
+</div>
+<!-- Right Column: 3D rendered composition, translucent capsules, floating verified pills -->
+<div class="lg:col-span-5 relative flex items-center justify-center">
+<!-- Main Card Backdrop with Medical Render Imagery -->
+<div class="relative w-full aspect-[4/3] sm:aspect-square max-w-md rounded-3xl overflow-hidden shadow-2xl bg-surface-container-lowest p-2">
+<img class="w-full h-full object-cover rounded-2xl" data-alt="Modern 3D render of stylized translucent medicine capsules in teal and soft sky blue hues floating delicately alongside minimalist frosted glass pharmaceutical bottles and smooth organic health shapes, clean studio lighting with soft diffused shadows and subtle azure highlights" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCOMSve9VwMEfnvmz0Vc3Mbbla8vrubEXI8BNL-q8jbKBHentSy5HlXGvFWJhz5Hvc0aA61CFuMAFFKd3jbVjkamqfUYMGPJqjb43fqC0E6G2L-bynM7rNTpKZKGPrf10YS2vOQPYRPbV0o5quNddZT48KIe-Q9qRFcV2I2k97Gink-SnkmiU9dTRdUYfUGA24Bg4tdpFP-QpFALq7vt4A6KHl6DWIR_7tffnbR-H5y">
+<!-- Floating Badge 1: Dispensación Certificada -->
+<div class="absolute top-6 left-6 bg-surface-container-lowest/90 backdrop-blur-md px-4 py-2.5 rounded-2xl shadow-xl flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-secondary-fixed flex items-center justify-center text-on-secondary-fixed">
+<span class="material-symbols-outlined text-[22px]">health_and_safety</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-primary font-bold">Dispensación 100%</span>
+<span class="font-label-sm text-[11px] text-secondary">Control Farmacéutico Reg.</span>
+</div>
+</div>
+<!-- Floating Badge 2: Monitoreo Activo de Cadena de Frío -->
+<div class="absolute bottom-6 right-6 bg-surface-container-lowest/90 backdrop-blur-md px-4 py-3 rounded-2xl shadow-xl flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-primary-container text-secondary-fixed flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]">ac_unit</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-primary font-bold">Cadena de Frío 2°C-8°C</span>
+<span class="font-label-sm text-[11px] text-on-surface-variant">Sensores IoT en tiempo real</span>
+</div>
+</div>
+</div>
+<!-- Decorative Mini Pill Indicator -->
+<div class="hidden sm:flex absolute -bottom-4 -left-6 bg-surface-container-lowest p-3 rounded-2xl shadow-lg items-center gap-2">
+<span class="w-3 h-3 rounded-full bg-secondary"></span>
+<span class="font-label-md text-label-md text-on-surface font-semibold">Receta Electrónica Validador</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Quick Categories Section -->
+<section class="w-full py-16 bg-surface-container-lowest">
+<div class="max-w-7xl mx-auto px-gutter">
+<div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
+<div>
+<span class="font-label-md text-label-md text-secondary uppercase font-bold tracking-wider">Exploración Rápida</span>
+<h2 class="font-headline-lg text-headline-lg text-primary tracking-tight mt-1">Categorías de Farmacia</h2>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-md">
+          Accede rápidamente a medicamentos bioequivalentes, suministros y bienestar integral con búsqueda categorizada.
+        </p>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+<!-- Cat 1 -->
+<a class="group p-5 rounded-2xl bg-surface-container-low hover:bg-secondary-fixed transition-all flex flex-col items-center text-center shadow-sm hover:shadow-md" href="#cat-receta">
+<div class="w-14 h-14 rounded-2xl bg-surface-container-lowest group-hover:bg-surface-container-lowest flex items-center justify-center text-secondary mb-3 shadow-sm group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-[28px]">pill</span>
+</div>
+<span class="font-label-md text-label-md text-primary font-bold group-hover:text-primary">Medicamentos con Receta</span>
+<span class="font-label-sm text-[11px] text-on-surface-variant mt-1">2,450 ítems</span>
+</a>
+<!-- Cat 2 -->
+<a class="group p-5 rounded-2xl bg-surface-container-low hover:bg-secondary-fixed transition-all flex flex-col items-center text-center shadow-sm hover:shadow-md" href="#cat-cuidado">
+<div class="w-14 h-14 rounded-2xl bg-surface-container-lowest group-hover:bg-surface-container-lowest flex items-center justify-center text-secondary mb-3 shadow-sm group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-[28px]">sanitizer</span>
+</div>
+<span class="font-label-md text-label-md text-primary font-bold">Cuidado Personal &amp; Higiene</span>
+<span class="font-label-sm text-[11px] text-on-surface-variant mt-1">940 ítems</span>
+</a>
+<!-- Cat 3 -->
+<a class="group p-5 rounded-2xl bg-surface-container-low hover:bg-secondary-fixed transition-all flex flex-col items-center text-center shadow-sm hover:shadow-md" href="#cat-vitaminas">
+<div class="w-14 h-14 rounded-2xl bg-surface-container-lowest group-hover:bg-surface-container-lowest flex items-center justify-center text-secondary mb-3 shadow-sm group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-[28px]">vital_signs</span>
+</div>
+<span class="font-label-md text-label-md text-primary font-bold">Vitaminas &amp; Suplementos</span>
+<span class="font-label-sm text-[11px] text-on-surface-variant mt-1">580 ítems</span>
+</a>
+<!-- Cat 4 -->
+<a class="group p-5 rounded-2xl bg-surface-container-low hover:bg-secondary-fixed transition-all flex flex-col items-center text-center shadow-sm hover:shadow-md" href="#cat-curacion">
+<div class="w-14 h-14 rounded-2xl bg-surface-container-lowest group-hover:bg-surface-container-lowest flex items-center justify-center text-secondary mb-3 shadow-sm group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-[28px]">medical_services</span>
+</div>
+<span class="font-label-md text-label-md text-primary font-bold">Material de Curación</span>
+<span class="font-label-sm text-[11px] text-on-surface-variant mt-1">320 ítems</span>
+</a>
+<!-- Cat 5 -->
+<a class="group p-5 rounded-2xl bg-surface-container-low hover:bg-secondary-fixed transition-all flex flex-col items-center text-center shadow-sm hover:shadow-md" href="#cat-dermocosmetica">
+<div class="w-14 h-14 rounded-2xl bg-surface-container-lowest group-hover:bg-surface-container-lowest flex items-center justify-center text-secondary mb-3 shadow-sm group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-[28px]">spa</span>
+</div>
+<span class="font-label-md text-label-md text-primary font-bold">Dermocosmética Avanzada</span>
+<span class="font-label-sm text-[11px] text-on-surface-variant mt-1">415 ítems</span>
+</a>
+<!-- Cat 6 -->
+<a class="group p-5 rounded-2xl bg-surface-container-low hover:bg-secondary-fixed transition-all flex flex-col items-center text-center shadow-sm hover:shadow-md" href="#cat-infantil">
+<div class="w-14 h-14 rounded-2xl bg-surface-container-low hover:bg-secondary-fixed transition-all flex flex-col items-center text-center shadow-sm hover:shadow-md">
+<div class="w-14 h-14 rounded-2xl bg-surface-container-lowest group-hover:bg-surface-container-lowest flex items-center justify-center text-secondary mb-3 shadow-sm group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-[28px]">child_care</span>
+</div>
+<span class="font-label-md text-label-md text-primary font-bold">Salud &amp; Cuidado Infantil</span>
+<span class="font-label-sm text-[11px] text-on-surface-variant mt-1">290 ítems</span>
+</div>
+</a>
+</div>
+</div>
+</section>
+<!-- Featured Promotions / Promociones Destacadas del Mes -->
+<section class="w-full py-16 bg-surface" id="promociones">
+<div class="max-w-7xl mx-auto px-gutter">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between mb-8 gap-4">
+<div>
+<span class="font-label-md text-label-md text-secondary uppercase font-bold tracking-wider">Ahorro y Salud</span>
+<h2 class="font-headline-lg text-headline-lg text-primary tracking-tight">Promociones Destacadas del Mes</h2>
+</div>
+<div class="flex items-center gap-2">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Válidas hasta fin de mes o agotar stock</span>
+</div>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+<!-- Promo Card 1 -->
+<div class="bg-surface-container-lowest rounded-2xl p-4 shadow-sm hover:shadow-xl transition-all flex flex-col justify-between group">
+<div class="relative w-full aspect-square rounded-xl overflow-hidden bg-surface-container-low mb-4">
+<span class="absolute top-2 left-2 z-10 px-2.5 py-1 rounded-full bg-error text-on-error font-label-sm text-[11px] font-bold shadow-sm">
+              -30% DCTO
+            </span>
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="High quality pharmaceutical bottle of Omega 3 fish oil dietary supplement against an immaculate white clinic background with soft natural lighting and medical aesthetic" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA4eputrbFnLvTAOrb_xd-W-Adu3dZIfdUblsnP34rnJzterZnbelUesfhVNF1-8b_y2BmuH9X1kH89FlkGrNPz6hqEvd-IC-zmSDng8dxjm0Y0ZDrHQnEvPLO8YNViFsI7qfUGowhiX6FeBW_He06WBvUklqRPy5s98g7wZ2f5AvV8GrMajGkt7vtV4jsbIxCR189qFlyC5YZSdR7c7L0mcANSpWxuroibT0-zF_QC">
+</div>
+<div>
+<span class="font-label-sm text-label-sm text-secondary font-semibold">Suplementos &amp; Cardio</span>
+<h3 class="font-title-md text-title-md text-primary font-bold mt-1 line-clamp-1">Omega 3 Ultra Puro 1000mg</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2 mt-1">Cápsulas blandas de alta concentración para el cuidado cardiovascular y cerebral.</p>
+</div>
+<div class="mt-4 pt-3 flex items-center justify-between border-t border-surface-container">
+<div>
+<span class="font-headline-sm text-headline-sm text-primary font-extrabold">$14.990</span>
+<span class="font-label-sm text-[11px] text-on-surface-variant line-through ml-1.5">$21.490</span>
+</div>
+<button class="p-2.5 rounded-xl bg-secondary text-on-secondary hover:bg-primary-container transition-colors shadow-sm" title="Agregar al pedido" type="button">
+<span class="material-symbols-outlined text-[20px]">add_shopping_cart</span>
+</button>
+</div>
+</div>
+<!-- Promo Card 2 -->
+<div class="bg-surface-container-lowest rounded-2xl p-4 shadow-sm hover:shadow-xl transition-all flex flex-col justify-between group">
+<div class="relative w-full aspect-square rounded-xl overflow-hidden bg-surface-container-low mb-4">
+<span class="absolute top-2 left-2 z-10 px-2.5 py-1 rounded-full bg-error text-on-error font-label-sm text-[11px] font-bold shadow-sm">
+              -25% DCTO
+            </span>
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="Dermocosmetic facial hyaluronic acid serum bottle with pipette dropper, clinical blue clean lighting, sleek aesthetic of premium skincare product" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBAGAjZd8pVBCI7P1hTFYd-zctwxJH8m_RbJl7I4zp9JTSL8--17QoT4eHHuPgFN29YjzS5T1PYXTndaR3V44D8_wHFgiRSTofQTu3BQ8N7yw7LZ04jYI6OWkLVSxjKVuhElaYW7OOrbHkQ2r5iXosdsxVIG-UbReUj-8Z6pdCnEyqszMAj1ZTUZzMfM2QpwTEWwXNXcDcZaYV0fR8eOyTwzAoZ0b9HEKY5OcGHED-w">
+</div>
+<div>
+<span class="font-label-sm text-label-sm text-secondary font-semibold">Dermocosmética</span>
+<h3 class="font-title-md text-title-md text-primary font-bold mt-1 line-clamp-1">Sérum Ácido Hialurónico B5</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2 mt-1">Hidratación intensiva y reparación cutánea profunda. Testeado dermatológicamente.</p>
+</div>
+<div class="mt-4 pt-3 flex items-center justify-between border-t border-surface-container">
+<div>
+<span class="font-headline-sm text-headline-sm text-primary font-extrabold">$23.900</span>
+<span class="font-label-sm text-[11px] text-on-surface-variant line-through ml-1.5">$31.900</span>
+</div>
+<button class="p-2.5 rounded-xl bg-secondary text-on-secondary hover:bg-primary-container transition-colors shadow-sm" title="Agregar al pedido" type="button">
+<span class="material-symbols-outlined text-[20px]">add_shopping_cart</span>
+</button>
+</div>
+</div>
+<!-- Promo Card 3 -->
+<div class="bg-surface-container-lowest rounded-2xl p-4 shadow-sm hover:shadow-xl transition-all flex flex-col justify-between group">
+<div class="relative w-full aspect-square rounded-xl overflow-hidden bg-surface-container-low mb-4">
+<span class="absolute top-2 left-2 z-10 px-2.5 py-1 rounded-full bg-secondary text-on-secondary font-label-sm text-[11px] font-bold shadow-sm">
+              2x1 MIXTO
+            </span>
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="Effervescent Vitamin C and Zinc tubes and packaging on light aqua medical laboratory counter, vibrant, healthy, and sharp composition" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD53VdCUZh846qjLmDeIOv_LFUk44tEkc_HKpXhJjg5y2J4k0nS8tC_tzNDdRmts56H70bwt0_4_Vv81ObeftONoavqS5NES-IfU2zF75wlinZKyMNJyRyQs3K58VCojITNPjocjczNY1n_7JgaA3gT-5zq7_bd2267FWhCSAp3mnDu9dg09Xn1QA6RNf3C9WG_fMfKf490Q5sJnJdIJlbj8qoF4h3wNBdeawordxVR">
+</div>
+<div>
+<span class="font-label-sm text-label-sm text-secondary font-semibold">Inmunología</span>
+<h3 class="font-title-md text-title-md text-primary font-bold mt-1 line-clamp-1">Vitamina C + Zinc Efervescente</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2 mt-1">Pack x2 tubos 20 comprimidos con sabor cítrico natural para el sistema inmune.</p>
+</div>
+<div class="mt-4 pt-3 flex items-center justify-between border-t border-surface-container">
+<div>
+<span class="font-headline-sm text-headline-sm text-primary font-extrabold">$8.490</span>
+<span class="font-label-sm text-[11px] text-on-surface-variant line-through ml-1.5">$12.990</span>
+</div>
+<button class="p-2.5 rounded-xl bg-secondary text-on-secondary hover:bg-primary-container transition-colors shadow-sm" title="Agregar al pedido" type="button">
+<span class="material-symbols-outlined text-[20px]">add_shopping_cart</span>
+</button>
+</div>
+</div>
+<!-- Promo Card 4 -->
+<div class="bg-surface-container-lowest rounded-2xl p-4 shadow-sm hover:shadow-xl transition-all flex flex-col justify-between group">
+<div class="relative w-full aspect-square rounded-xl overflow-hidden bg-surface-container-low mb-4">
+<span class="absolute top-2 left-2 z-10 px-2.5 py-1 rounded-full bg-error text-on-error font-label-sm text-[11px] font-bold shadow-sm">
+              -40% DCTO
+            </span>
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="Digital arm blood pressure monitor clinical medical device with clear backlit LCD display and cuff, studio product photograph on soft teal backdrop" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA4DndBw50jHEFcilSMQdBXOn5PwdLXP4krSzoFpok168IAzmimYyUiWXaLfqo466a06wuS8U-dtNdGUnUqb8emsgfF96wZ4zwK0ODCyQzLBaWBIWDY3ZriVldm3ooNyBcmhlobyUtSh0iVCGmmZN9T-XOpdb9RZEojUYIQpBu9xkuuD1Eln1lcAjk4xo36NWKXCJsMdIBr3dDNme-B0soTML1s0SGLZ47fLJ_FS2Vz">
+</div>
+<div>
+<span class="font-label-sm text-label-sm text-secondary font-semibold">Equipamiento Médico</span>
+<h3 class="font-title-md text-title-md text-primary font-bold mt-1 line-clamp-1">Tensiómetro Digital de Brazo</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2 mt-1">Medición de alta precisión con memoria para dos usuarios y detector de arritmias.</p>
+</div>
+<div class="mt-4 pt-3 flex items-center justify-between border-t border-surface-container">
+<div>
+<span class="font-headline-sm text-headline-sm text-primary font-extrabold">$28.990</span>
+<span class="font-label-sm text-[11px] text-on-surface-variant line-through ml-1.5">$48.900</span>
+</div>
+<button class="p-2.5 rounded-xl bg-secondary text-on-secondary hover:bg-primary-container transition-colors shadow-sm" title="Agregar al pedido" type="button">
+<span class="material-symbols-outlined text-[20px]">add_shopping_cart</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Interactive Digital Prescription Upload Banner -->
+
+<!-- Pharmacy Services: 4 Pillars -->
+<section class="w-full py-20 bg-surface-container-lowest" id="servicios">
+<div class="max-w-7xl mx-auto px-gutter">
+<div class="text-center max-w-2xl mx-auto mb-14">
+<span class="font-label-md text-label-md text-secondary uppercase font-bold tracking-wider">Compromiso Clínico</span>
+<h2 class="font-headline-lg text-headline-lg text-primary tracking-tight mt-1">Servicios de Salud Integral</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mt-2">
+          Mucho más que una farmacia: somos tu centro primario de consulta, apoyo preventivo y bienestar familiar.
+        </p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+<!-- Pillar 1 -->
+<div class="p-6 rounded-2xl bg-surface-container-low hover:bg-surface-container transition-all flex flex-col justify-between shadow-sm">
+<div>
+<div class="w-12 h-12 rounded-xl bg-secondary text-on-secondary flex items-center justify-center mb-4 shadow-sm">
+<span class="material-symbols-outlined text-[24px]">electric_moped</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-primary font-bold">Entrega a Domicilio Rápida</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mt-2">
+              Despacho con temperatura controlada en menos de 45 minutos para zonas metropolitanas y envíos programados.
+            </p>
+</div>
+<div class="mt-6 flex items-center gap-1 font-label-md text-secondary font-semibold">
+<span class="">Rastreo en vivo</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</div>
+</div>
+<!-- Pillar 2 -->
+<div class="p-6 rounded-2xl bg-surface-container-low hover:bg-surface-container transition-all flex flex-col justify-between shadow-sm">
+<div>
+<div class="w-12 h-12 rounded-xl bg-primary text-on-primary flex items-center justify-center mb-4 shadow-sm">
+<span class="material-symbols-outlined text-[24px]">support_agent</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-primary font-bold">Asesoría Farmacéutica en Línea</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mt-2">
+              Químicos farmacéuticos colegiados disponibles por chat y videollamada para resolver dudas sobre posología e interacciones.
+            </p>
+</div>
+<div class="mt-6 flex items-center gap-1 font-label-md text-secondary font-semibold">
+<span class="">Iniciar Consulta</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</div>
+</div>
+<!-- Pillar 3 -->
+<div class="p-6 rounded-2xl bg-surface-container-low hover:bg-surface-container transition-all flex flex-col justify-between shadow-sm">
+<div>
+<div class="w-12 h-12 rounded-xl bg-secondary text-on-secondary flex items-center justify-center mb-4 shadow-sm">
+<span class="material-symbols-outlined text-[24px]">monitor_heart</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-primary font-bold">Monitoreo de Presión &amp; Glucosa</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mt-2">
+              Módulos de autocuidado gratuitos en todas nuestras sucursales físicas con registro histórico sincronizado a tu perfil.
+            </p>
+</div>
+<div class="mt-6 flex items-center gap-1 font-label-md text-secondary font-semibold">
+<span class="">Ver Sucursales</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</div>
+</div>
+<!-- Pillar 4 -->
+<div class="p-6 rounded-2xl bg-surface-container-low hover:bg-surface-container transition-all flex flex-col justify-between shadow-sm">
+<div>
+<div class="w-12 h-12 rounded-xl bg-primary text-on-primary flex items-center justify-center mb-4 shadow-sm">
+<span class="material-symbols-outlined text-[24px]">policy</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-primary font-bold">Convenios con Aseguradoras</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mt-2">
+              Integración I-Med con bonificación inmediata en línea para Fonasa, Isapres y seguros complementarios de salud.
+            </p>
+</div>
+<div class="mt-6 flex items-center gap-1 font-label-md text-secondary font-semibold">
+<span class="">Comprobar Convenio</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Physical Branch Finder & Emergency Section -->
+<section class="w-full py-16 bg-surface" id="contacto">
+<div class="max-w-7xl mx-auto px-gutter grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+<!-- Info Left -->
+<div class="lg:col-span-5 space-y-6">
+<span class="font-label-md text-label-md text-secondary uppercase font-bold tracking-wider">Atención de Emergencias</span>
+<h2 class="font-headline-lg text-headline-lg text-primary tracking-tight">Sucursal Central &amp; Farmacia de Turno</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">
+          Contamos con despacho ininterrumpido nocturno y servicio de retiro presencial las 24 horas en nuestra sede hospitalaria.
+        </p>
+<div class="space-y-4">
+<div class="flex items-start gap-3.5 p-4 rounded-xl bg-surface-container-lowest shadow-sm">
+<span class="material-symbols-outlined text-secondary text-[24px] mt-0.5">location_on</span>
+<div>
+<span class="font-title-md text-title-md text-primary font-bold">Av. Providencia 1450, Santiago</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant">A pasos de Metro Manuel Montt • Estacionamiento exclusivo para clientes</p>
+</div>
+</div>
+<div class="flex items-start gap-3.5 p-4 rounded-xl bg-surface-container-lowest shadow-sm">
+<span class="material-symbols-outlined text-secondary text-[24px] mt-0.5">phone_in_talk</span>
+<div>
+<span class="font-title-md text-title-md text-primary font-bold">Mesa de Urgencia: +56 2 2800 4500</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Operadores farmacéuticos y toxicología básica de guardia</p>
+</div>
+</div>
+<div class="flex items-start gap-3.5 p-4 rounded-xl bg-surface-container-lowest shadow-sm">
+<span class="material-symbols-outlined text-secondary text-[24px] mt-0.5">schedule</span>
+<div>
+<span class="font-title-md text-title-md text-primary font-bold">Horario: Lunes a Domingo - Continuado</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Ventanilla de turno nocturna habilitada 23:00 a 07:00 hrs</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Map View Right -->
+<div class="lg:col-span-7 rounded-3xl overflow-hidden shadow-xl bg-surface-container-lowest p-2">
+<div class="w-full h-96 rounded-2xl bg-cover bg-center" data-location="Av. Providencia 1450, Providencia, Región Metropolitana, Chile" style="background-image: url(&quot;https://lh3.googleusercontent.com/aida-public/AB6AXuA_5VLjRoqSVwGnoxIE-ow7xWLg1EPeRtjyF67yZZA_QFhm97VgZPb-Be7c-wc5T5CVqkv5G59t2c4bsD-40CLTgALF8c1cC2Qv8N7PXYm7VLfWfwxvXeO4VI4VmM69gID8EU_-AjjXeSR-hQctRZtTMs08ONyWTiUBdjkYhDfrnKssieC6wxp8KS5tgDuWXaiaj80eoxmMi2aDagC1rxxpUkwDQEI2Tydh9gXWTrdW&quot;);">
+<div class="h-full w-full bg-gradient-to-t from-primary/80 via-transparent to-transparent flex items-end p-6">
+<div class="bg-surface-container-lowest/90 backdrop-blur-md px-4 py-2.5 rounded-xl shadow-lg flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[20px]">local_hospital</span>
+<span class="font-label-md text-label-md text-primary font-bold">Sede Central Providencia (Farmacia de Turno Oficial)</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Complete Institutional Footer -->
+<footer class="w-full bg-primary-container text-surface-variant pt-16 pb-12 border-t border-surface-container">
+<div class="max-w-7xl mx-auto px-gutter grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10">
+<!-- Brand column -->
+<div class="lg:col-span-2 space-y-4">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded-xl bg-secondary flex items-center justify-center text-on-secondary">
+<span class="material-symbols-outlined text-[20px]">local_pharmacy</span>
+</div>
+<span class="font-headline-sm text-headline-sm text-on-primary font-bold">Vitalis PharmaSys</span>
+</div>
+<p class="font-body-md text-body-md text-inverse-primary max-w-sm">
+          Red farmacéutica y plataforma clínica certificada para la dispensación segura, trazabilidad de fármacos y cuidado de la salud integral.
+        </p>
+<div class="pt-2 flex items-center gap-3 text-secondary-fixed">
+<span class="px-2.5 py-1 rounded bg-tertiary-container font-label-sm text-label-sm">Resolución Exenta N° 8492 ISP</span>
+<span class="px-2.5 py-1 rounded bg-tertiary-container font-label-sm text-label-sm">ISO 9001:2015</span>
+</div>
+</div>
+<!-- Links 1: Catálogo -->
+<div class="space-y-3">
+<h4 class="font-title-md text-title-md text-on-primary font-bold">Medicamentos</h4>
+<ul class="space-y-2 font-body-sm text-body-sm text-inverse-primary">
+<li class=""><a class="hover:text-secondary-fixed transition-colors" href="#cat-receta">Medicamentos con Receta</a></li>
+<li class=""><a class="hover:text-secondary-fixed transition-colors" href="#cat-bioequivalentes">Bioequivalentes Genéricos</a></li>
+<li class=""><a class="hover:text-secondary-fixed transition-colors" href="#cat-cronicos">Tratamientos Crónicos</a></li>
+<li class=""><a class="hover:text-secondary-fixed transition-colors" href="#cat-pediatrico">Línea Pediátrica</a></li>
+<li class=""><a class="hover:text-secondary-fixed transition-colors" href="#cat-frio">Productos Refrigerados</a></li>
+</ul>
+</div>
+<!-- Links 2: Servicios -->
+<div class="space-y-3">
+<h4 class="font-title-md text-title-md text-on-primary font-bold">Atención Clínica</h4>
+<ul class="space-y-2 font-body-sm text-body-sm text-inverse-primary">
+<li class=""><a class="hover:text-secondary-fixed transition-colors" href="#receta">Validación de Recetas</a></li>
+<li class=""><a class="hover:text-secondary-fixed transition-colors" href="#servicios">Teleconsulta Farmacéutica</a></li>
+<li class=""><a class="hover:text-secondary-fixed transition-colors" href="#aseguradoras">Seguros y Coberturas</a></li>
+<li class=""><a class="hover:text-secondary-fixed transition-colors" href="#empresas">Convenios Empresas</a></li>
+<li class=""><a class="hover:text-secondary-fixed transition-colors" href="#turnos">Calendario de Turnos</a></li>
+</ul>
+</div>
+<!-- Links 3: Ayuda & Legal -->
+<div class="space-y-3">
+<h4 class="font-title-md text-title-md text-on-primary font-bold">Soporte &amp; Legal</h4>
+<ul class="space-y-2 font-body-sm text-body-sm text-inverse-primary">
+<li class=""><a class="hover:text-secondary-fixed transition-colors" href="#politicas">Políticas de Devolución</a></li>
+<li class=""><a class="hover:text-secondary-fixed transition-colors" href="#privacidad">Privacidad de Datos Clínicos</a></li>
+<li class=""><a class="hover:text-secondary-fixed transition-colors" href="#terminos">Términos de Dispensación</a></li>
+<li class=""><a class="hover:text-secondary-fixed transition-colors" href="#reclamaciones">Libro de Sugerencias</a></li>
+<li class=""><a class="hover:text-secondary-fixed transition-colors" href="#farmacovigilancia">Reporte de Farmacovigilancia</a></li>
+</ul>
+</div>
+</div>
+<!-- Bottom Copyright -->
+<div class="max-w-7xl mx-auto px-gutter mt-12 pt-6 border-t border-tertiary-container flex flex-col sm:flex-row items-center justify-between text-on-primary-container font-label-sm text-label-sm gap-4">
+<div class="">
+        © 2025 Vitalis PharmaSys S.A. Todos los derechos reservados. Venta bajo receta médica según legislación sanitaria vigente.
+      </div>
+<div class="flex items-center gap-4">
+<span class="">Transbank WebPay Plus</span>
+<span class="">•</span>
+<span class="">Red de Salud Segura</span>
+</div>
+</div>
+</footer>
+</div></main><footer class="w-full bg-surface-container-lowest border-t border-surface-variant py-space-md"><div class="w-full px-margin flex flex-col sm:flex-row items-center justify-between gap-space-sm font-label-sm text-label-sm text-on-surface-variant"><div class="flex items-center gap-space-sm"><span class="font-label-md text-label-md text-primary">Vitalis PharmaSys v2.4</span><span class="">•</span><span class="flex items-center gap-1 text-secondary"><span class="material-symbols-outlined text-[14px]">lock</span> Conexión segura SSL</span><span class="">•</span><span class="">Sistema certificado para gestión clínica y farmacológica</span></div><div class="flex items-center gap-space-md"><span class="text-on-surface-variant">Terminal ID: POS-CENTRAL-01</span><span class="">•</span><span class="">Soporte Técnico: 0800-PHARMA</span></div></div></footer>
+
+</body></html>
