@@ -1,0 +1,79 @@
+:root {
+  /* Paleta Oficial */
+  --jet-black: #022b3a;
+  --teal: #1f7a8c;
+  --teal-hover: #175f6d;
+  --pale-sky: #bfdbf7;
+  --lavender: #e1e5f2;
+  --white: #ffffff;
+
+  /* Tokens Clínicos - Modo Claro */
+  --bg-app: #f4f7f9;
+  --bg-surface: #ffffff;
+  --bg-surface-alt: #ebeef0;
+  --border-color: #e8eff5;
+  --text-main: #022b3a;
+  --text-muted: #526e7d;
+  --header-bg: #ffffff;
+
+  --badge-success-bg: #e6f7f2;
+  --badge-success-text: #0f6b4f;
+  --badge-success-border: #b8ebd9;
+
+  --badge-warning-bg: #fef6e7;
+  --badge-warning-text: #a05e03;
+  --badge-warning-border: #fcdca7;
+
+  --badge-danger-bg: #ffdad6;
+  --badge-danger-text: #ba1a1a;
+  --badge-danger-border: #ffb4ab;
+
+  --badge-info-bg: rgba(191, 219, 247, 0.45);
+  --badge-info-text: #022b3a;
+  --badge-info-border: #bfdbf7;
+}
+
+.dark {
+  --bg-app: #08141d;
+  --bg-surface: #0d1e2b;
+  --bg-surface-alt: #132838;
+  --border-color: #1a3549;
+  --text-main: #ffffff;
+  --text-muted: #a1b8c7;
+  --header-bg: #0b1a24;
+
+  --badge-info-bg: rgba(31, 122, 140, 0.3);
+  --badge-info-text: #bfdbf7;
+  --badge-info-border: #1f7a8c;
+}
+
+body {
+  font-family: 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif;
+  background-color: var(--bg-app);
+  color: var(--text-main);
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.font-brand {
+  font-family: 'Neuton', Georgia, serif;
+}
+
+.shadow-clinical-sm {
+  box-shadow: 0 1px 3px rgba(2, 43, 58, 0.05), 0 1px 2px rgba(2, 43, 58, 0.03);
+}
+
+.shadow-clinical-md {
+  box-shadow: 0 10px 25px -5px rgba(2, 43, 58, 0.08), 0 8px 10px -6px rgba(2, 43, 58, 0.04);
+}
+
+.shadow-clinical-lg {
+  box-shadow: 0 20px 30px -10px rgba(2, 43, 58, 0.16);
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
