@@ -157,15 +157,7 @@
         </form>
       </div>
 
-      {{-- Pie: Registrarme (Boceto 4) --}}
-      <div class="pt-4 border-t border-[#e8eff5] dark:border-[#1a3549] text-center">
-        <p class="text-xs text-[#526e7d] dark:text-[#a1b8c7]">
-          ¿No tienes una cuenta de operador?
-          <a href="{{ url('/register') }}" class="font-bold text-[#1f7a8c] hover:underline ml-1">
-            Registrarme
-          </a>
-        </p>
-      </div>
+      
 
     </div>
 
