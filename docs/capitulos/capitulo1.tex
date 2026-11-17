@@ -1,47 +1,108 @@
 \chapter{Marco de Referencia}
 
- Desde finales del siglo pasado, los avances tecnológicos en la miniaturización de la electrónica y los componentes mecánicos han allanado el camino para la creación y desarrollo de objetos voladores de pequeñas dimensiones, tales como aviones y helicópteros, los cuales están adquiriendo cada vez más habilidades para realizar vuelos de forma autónoma. Estos dispositivos son popularmente conocidos como drones, un término derivado del inglés \say{abejorros}, y se consideran máquinas voladoras autónomas o semi-autónomas capaces de llevar a cabo misiones de vuelo. En el ámbito internacional, se les conoce como UAVs del ingles \say{Unmanned Aerial Vehicles}, y representan una tecnología compleja cuyo control presenta desafíos, dado que sus características aerodinámicas son similares a las de las aeronaves convencionales \cite{eisenbeiss2004mini}.
-
-El estudio de estos dispositivos despierta un gran interés debido a su versatilidad y capacidad de maniobra, lo que les permite llevar a cabo una amplia gama de tareas en diversas aplicaciones, tales como el uso civil, militar y aeroespacial \cite{nawaz2019applications, shakhatreh2019unmanned, xiaoning2020analysis}. En la figura \ref{fig1_aplicacion_UAV}, se presenta una clasificación detallada de las aplicaciones más importantes de los UAVs.
+En el ámbito de la salud comunitaria y la administración de servicios farmacéuticos, la transformación digital se ha consolidado como un imperativo operativo, clínico y regulatorio. Las farmacias independientes y comunitarias desempeñan un papel neurálgico en la cadena de atención sanitaria primaria, siendo responsables no solo de la comercialización de medicamentos, sino de la custodia, dispensación informada y trazabilidad de insumos médicos de consumo humano. No obstante, la gestión cotidiana de estos establecimientos suele verse obstaculizada por la prevalencia de métodos empíricos o herramientas informáticas fragmentadas que carecen de mecanismos automatizados para el control de inventarios y la supervisión de prescripciones médicas. En este contexto, el presente proyecto aborda el desarrollo de \textit{Vitalis PharmaSys}, una plataforma web integral basada en el framework Laravel que sistematiza los flujos de trabajo farmacéuticos, garantizando la seguridad en el manejo de fármacos y respaldando la sostenibilidad operativa del negocio. En la figura \ref{fig:interfaz_sistema} se ilustra la arquitectura visual y el entorno de trabajo del sistema desarrollado.
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=16cm, height=7.5cm]{imagenes/Aplicaciones_UAV.png}
-    \caption{Áreas de aplicación UAVS.}
-    \label{fig1_aplicacion_UAV}
+    \includegraphics[width=0.95\textwidth]{imagenes/screen.png}
+    \caption{Entorno visual y panel de control del sistema \textit{Vitalis PharmaSys}.}
+    \label{fig:interfaz_sistema}
 \end{figure}
 
-\section{Antecedentes.}
+\section{Antecedentes}
 
-Los drones han atraído la atención de la comunidad investigadora que trabaja tanto en el campo militar como en el civil, con una gran cantidad de usos que han sido propuestos por los grupos de investigación, debido a sus características como capacidad y configuraciones, donde el helicóptero de cuatro rotores tiene el mayor número de citas en la literatura de control y ha sido ampliamente investigado para pruebas tanto en interiores como en exteriores . 
+Históricamente, la administración en boticas y farmacias tradicionales dependía de registros manuscritos plasmados en libros foliados de ingresos, libretas de mostrador y tarjetas kárdex físicas. Dichos métodos, si bien cumplían con una función rudimentaria de control, presentaban serias deficiencias: lentitud en la consulta de existencias, vulnerabilidad al deterioro físico de los soportes de papel, imposibilidad de realizar auditorías cruzadas y una alta propensión a discrepancias humanas en el cómputo de saldos.
+
+Con el advenimiento de la microcomputación en las décadas finales del siglo XX, muchos establecimientos transicionaron hacia el empleo de hojas de cálculo electrónicas y programas utilitarios de oficina. Aunque este salto tecnológico mejoró la legibilidad y permitió cálculos automáticos básicos, introdujo nuevas limitaciones críticas para la operación concurrente: la ausencia de validaciones de integridad referencial, la facilidad de corrupción o sobreescritura accidental de archivos, la carencia de roles de acceso diferenciados y la inexistencia de sincronización en tiempo real entre múltiples terminales de cobro y despacho.
+
+Posteriormente, surgieron en el mercado sistemas de punto de venta (POS) basados en arquitecturas de escritorio monousuario. No obstante, estas soluciones comerciales convencionales suelen presentar esquemas de licenciamiento onerosos y restrictivos, elevados requisitos de mantenimiento en hardware local, dependencias tecnológicas rígidas y nula accesibilidad remota. En el contexto local de las farmacias comunitarias e independientes en México ---particularmente en la región de Texcoco y su periferia metropolitana---, estos establecimientos enfrentan una marcada asimetría competitiva frente a las grandes cadenas consorciadas, las cuales disponen de plataformas corporativas centralizadas de planeación de recursos empresariales (ERP). Ante este escenario, se identifica la necesidad de concebir un sistema web moderno, accesible, seguro y respaldado por estándares de ingeniería de software contemporáneos que democratice las capacidades de gestión avanzada para el sector farmacéutico independiente.
+
+\section{Problemática}
+
+El funcionamiento operativo de las farmacias comunitarias e independientes enfrenta una serie de contingencias y cuellos de botella que comprometen tanto su viabilidad financiera como su cumplimiento legal y sanitario:
+
+\begin{enumerate}
+    \item \textbf{Mermas económicas por vencimiento de medicamentos:} La carencia de un seguimiento sistemático por número de lote y fecha de expiración provoca que productos con fecha de caducidad próxima queden relegados al fondo de las estanterías. La ausencia de un esquema de despacho basado en caducidades genera pérdidas financieras directas derivadas de la destrucción obligatoria de fármacos vencidos que no lograron comercializarse oportunamente.
+    \item \textbf{Riesgo legal y sanitario en la venta de medicamentos controlados:} La legislación sanitaria mexicana, encabezada por la Ley General de Salud y los lineamientos de la Comisión Federal para la Protección contra Riesgos Sanitarios (COFEPRIS), impone estrictos protocolos de retención y registro para antibióticos y psicotrópicos. En la práctica manual, la omisión del registro de cédulas profesionales de los médicos prescriptores, la falta de correlación entre recetas y lotes surtidos, o el extravío físico de recetas derivan en observaciones graves, multas económicas severas o la clausura del establecimiento.
+    \item \textbf{Inconsistencias y pérdidas en el inventario:} La dispersión de anotaciones provoca descuadres crónicos entre el inventario teórico y las existencias físicas en bodega y mostrador. Esto facilita mermas no justificadas, robos internos inadvertidos y compras a destiempo que provocan desabasto de fármacos esenciales (\textit{stockout}) o sobreacumulación de productos de baja rotación.
+    \item \textbf{Retardo operativo en el punto de venta:} El proceso de atención al cliente se torna lento cuando el dependiente debe verificar manualmente los precios, indagar la existencia de presentaciones bioequivalentes o consultar existencias en estantes durante horas de alta afluencia, deteriorando la satisfacción del usuario.
+    \item \textbf{Falta de soporte analítico para la toma de decisiones:} Al carecer de un repositorio transaccional consolidado, los administradores no pueden determinar con exactitud los márgenes de utilidad reales, la rotación histórica de productos por proveedor ni el comportamiento estacional de la demanda.
+\end{enumerate}
+
+De no subsanarse esta problemática mediante una herramienta sistematizada, los establecimientos permanecen expuestos a la insolvencia económica por obsolescencia de mercancía, a sanciones sanitarias irreversibles y a un deterioro paulatino de su competitividad en el mercado farmacéutico.
+
+\section{Justificación}
+
+La ejecución del proyecto \textit{Vitalis PharmaSys} se sustenta en argumentos técnicos, operativos y económicos de alta relevancia para el ámbito de la ingeniería de software y la administración sanitaria:
+
+\begin{itemize}
+    \item \textbf{Relevancia Técnica:} El sistema implementa una arquitectura web moderna fundamentada en el patrón arquitectónico Modelo-Vista-Controlador (MVC) provisto por el framework Laravel 11/12 sobre PHP 8.4. Esta plataforma incorpora capas robustas de seguridad informática, incluyendo prevención nativa contra inyecciones SQL a través del mapeador objeto-relacional (ORM) Eloquent, protección contra ataques de falsificación de peticiones en sitios cruzados (CSRF) y sanitización estricta contra secuencias de comandos en sitios cruzados (XSS). Asimismo, la integración con el motor de base de datos MariaDB asegura integridad referencial mediante el cumplimiento de las propiedades transaccionales ACID (Atomicidad, Consistencia, Aislamiento y Durabilidad). La interfaz se beneficia de Tailwind CSS v4 bajo la guía de diseño \textit{Clinical Precision UI}, ofreciendo una experiencia ergonómica, accesible (conforme a las directrices WCAG AA) y ligera en el navegador web sin necesidad de complejas instalaciones de software cliente en las terminales de trabajo.
+    \item \textbf{Relevancia Operativa:} Operativamente, la plataforma automatiza y enlaza todos los eslabones del flujo farmacéutico: desde la emisión de órdenes de compra a proveedores y la verificación física en recepción de mercancía, hasta el ingreso clasificado en lotes y la venta final en mostrador. Destaca la incorporación de algoritmos de alerta que notifican al personal sobre lotes en ventana crítica de vencimiento (a 30, 60 y 90 días) y existencias por debajo del umbral mínimo de seguridad. El sistema de control de recetas médicas sistematiza la captura de datos del médico y paciente, asegurando una dispensación transparente y auditable mediante una bitácora inmutable de transacciones.
+    \item \textbf{Relevancia Económica:} Desde el punto de vista financiero, la solución previene el desecho de medicamentos mediante la estricta aplicación de la política logística FEFO (\textit{First Expired, First Out}), la cual prioriza la salida comercial de los fármacos con caducidad más cercana. Además, optimiza el capital de trabajo al orientar las compras con base en estadísticas reales de rotación, erradica los costos recurrentes de licenciamiento por equipo asociados al software comercial privativo y reduce sustancialmente los tiempos muertos de atención, elevando el rendimiento comercial y la rentabilidad del establecimiento.
+\end{itemize}
 
 \section{Objetivo General}
 Desarrollar un sistema web para la gestión de actividades dentro de una farmacia, utilizando una arquitectura y herramientas del entorno de Laravel, para asegurar la trazabilidad de los productos médicos, minimizar los errores de registro manual y proporcionar un soporte analítico para la gestión estratégica del negocio.
 
 \section{Objetivos Específicos}
 \begin{enumerate}
-\item Identificar las necesidades relacionadas con los procesos de control de una farmacia, mediante una investigación, para la elaboración completa del proyecto.
-\item Diseñar la arquitectura de la base de datos e interfaz del sistema, mediante herramientas y tecnologías web, para organizar de mejor manera la información.
-\item Implementar módulos de control, con Laravel y MariaDB, para el registro, actualización, salida y existencia de medicamentos.
-\item Generar alertas automáticas sobre caducidades próximas y niveles mínimos de existencias, utilizando las herramientas proporcionadas por el framework, para evitar pérdidas.
-\item Evaluar el funcionamiento del sistema, mediante pruebas de sus módulos y la generación de reportes estadísticos, para verificar la precisión de los registros y favorecer la toma de decisiones.
+    \item Identificar las necesidades relacionadas con los procesos de control de una farmacia, mediante una investigación, para la elaboración completa del proyecto.
+    \item Diseñar la arquitectura de la base de datos e interfaz del sistema, mediante herramientas y tecnologías web, para organizar de mejor manera la información.
+    \item Implementar módulos de control, con Laravel y MariaDB, para el registro, actualización, salida y existencia de medicamentos.
+    \item Generar alertas automáticas sobre caducidades próximas y niveles mínimos de existencias, utilizando las herramientas proporcionadas por el framework, para evitar pérdidas.
+    \item Evaluar el funcionamiento del sistema, mediante pruebas de sus módulos y la generación de reportes estadísticos, para verificar la precisión de los registros y favorecer la toma de decisiones.
 \end{enumerate}
 
-\section{Alcance}
+\section{Alcances del Proyecto}
 
+El alcance del proyecto comprende la ingeniería, codificación, configuración y validación de una plataforma web integral entregable, compuesta por los siguientes módulos y funcionalidades operativas:
+
+\begin{itemize}
+    \item \textbf{Módulo de Seguridad y Control de Acceso (RBAC):} Autenticación de usuarios con cifrado seguro de credenciales mediante algoritmos hash (Bcrypt), gestión de sesiones y control de acceso basado en roles jerárquicos (Administrador, Encargado de Farmacia y Cajero) con permisos granulares para restringir o facultar operaciones sensibles.
+    \item \textbf{Módulo de Catálogos Maestros:} Administración integral (altas, bajas lógicas, modificaciones y consultas) de medicamentos clasificados por nombre genérico y comercial, concentración, código de barras, categorías terapéuticas, formas farmacéuticas o presentaciones, marcas comerciales, laboratorios fabricantes y directorio de proveedores.
+    \item \textbf{Módulo de Control de Lotes y Trazabilidad de Caducidades:} Registro individualizado de lotes asociados a cada medicamento, capturando fecha de manufactura, fecha de expiración, existencias físicas específicas, costo de adquisición y precio de venta al público. Se implementa la lógica FEFO para sugerir la salida prioritaria del lote próximo a vencer.
+    \item \textbf{Módulo de Monitoreo y Alertas Preventivas:} Servicio automatizado de detección de productos en riesgo sanitario por caducidad (parametrizado en ventanas temporales preventivas de 30, 60 y 90 días) y detección de inventario crítico inferior al stock de seguridad mínimo establecido.
+    \item \textbf{Módulo de Compras y Recepción de Mercancía:} Registro de pedidos y órdenes de compra hacia laboratorios o distribuidores, complementado por un submódulo de recepción física que compara cantidades pactadas contra recibidas y formaliza la entrada de nuevos lotes al inventario.
+    \item \textbf{Módulo de Punto de Venta (POS):} Interfaz rápida para el registro de ventas en mostrador, cálculo automático de impuestos (IVA), emisión e impresión de comprobantes de venta (tickets) y deducción automática e inmediata del inventario sobre el lote seleccionado.
+    \item \textbf{Módulo de Dispensación y Control de Recetas Médicas:} Registro y validación obligatoria de recetas médicas para fármacos antibióticos y controlados, vinculando nombre del médico, número de cédula profesional, institución emisora, nombre del paciente, diagnóstico y fecha de prescripción, en cumplimiento con las regulaciones sanitarias.
+    \item \textbf{Módulo de Movimientos y Devoluciones de Inventario:} Registro pormenorizado de cualquier entrada, salida, ajuste por merma o avería, y gestión de devoluciones provenientes de clientes o destinadas a proveedores con justificación formal.
+    \item \textbf{Módulo de Auditoría y Bitácora del Sistema:} Registro histórico inmutable de eventos operacionales que almacena el identificador del usuario responsable, tipo de acción realizada, sello de tiempo exacto y dirección IP de origen, permitiendo la trazabilidad total ante inspecciones.
+    \item \textbf{Interfaz Full-Canvas con Lanzador de Aplicaciones y Portal Público:} Espacio de trabajo administrativo optimizado de doce columnas que elimina barras laterales estáticas mediante un menú flotante de 9 puntos (\textit{App Launcher}), complementado por un portal web público informativo que incluye un catálogo de consulta y un visor tridimensional clínico desarrollado con tecnologías WebGL.
+\end{itemize}
 
 \section{Limitaciones del Sistema}
+
+Con el fin de delimitar formalmente la frontera técnica y operativa de la presente versión de \textit{Vitalis PharmaSys}, se declaran las siguientes restricciones:
+
 \begin{enumerate}
-\item \textbf{Conexión a internet:} Se implementará un sistema accesible desde diferentes dispositivos mediante una conexión de red. Además, se buscará incorporar mecanismos de almacenamiento local o recuperación de información para reducir las interrupciones ocasionadas por fallas de conectividad. El servidor contará con mecanismos de disponibilidad y recuperación ante posibles fallos.
-\item \textbf{Control de usuarios:} Se implementará un módulo de autenticación y autorización que permita administrar usuarios mediante roles y permisos específicos. Se contemplarán diferentes niveles de acceso, como administrador y personal encargado del inventario, con el propósito de proteger la información y evitar modificaciones no autorizadas.
-\item \textbf{Actualización de información:} Se incorporará un registro de movimientos de inventario que permita controlar las entradas, salidas, devoluciones y ajustes de medicamentos. También se incluirá un historial de movimientos para identificar quién realizó cada operación y cuándo se llevó a cabo, reduciendo los errores de captura y manteniendo actualizada la información.
-\item \textbf{Funciones limitadas:} El sistema contará con módulos enfocados en la administración y control de medicamentos, incluyendo registro, edición, consulta, clasificación, control de existencias, fechas de caducidad y generación de reportes. Las funcionalidades adicionales podrán incorporarse posteriormente de acuerdo con las necesidades de la institución.
-\item \textbf{Sin integración externa:} Se diseñará una estructura que permita futuras integraciones con proveedores, sistemas de facturación y plataformas externas mediante interfaces de comunicación (API). En la primera versión, la administración de la información se realizará directamente desde el sistema, sin depender de servicios externos.
-\item \textbf{Mantenimiento del sistema:} Se establecerá un plan de mantenimiento preventivo y correctivo que contemple actualizaciones, revisión de errores, optimización del funcionamiento y generación periódica de copias de seguridad. Asimismo, se considerarán mecanismos de restauración de datos para garantizar la continuidad y confiabilidad de la información.
+    \item \textbf{Dependencia de conectividad de red:} El sistema adopta una arquitectura cliente-servidor centralizada que requiere conectividad de red local o acceso continuo a internet en las terminales de trabajo para sincronizar transacciones en tiempo real con la base de datos MariaDB. No contempla sincronización asíncrona fuera de línea (\textit{offline-first}) en caso de corte prolongado del enlace de red.
+    \item \textbf{Ausencia de timbrado fiscal automatizado (CFDI):} El módulo de ventas emite notas de remisión, tickets de venta y comprobantes de compra internos; la emisión de facturas electrónicas timbradas ante el Servicio de Administración Tributaria (SAT) mediante un Proveedor Autorizado de Certificación (PAC) queda fuera del alcance de esta versión, debiendo canalizarse por medios externos.
+    \item \textbf{Exclusión de pasarelas de pago electrónico en línea:} La plataforma orienta su procesamiento transaccional al punto de venta físico (mostrador), gestionando registros de pago en efectivo y tarjeta bancaria de manera administrativa. No incorpora pasarelas bancarias web (e.g., Stripe, Mercado Pago) para venta electrónica desatendida desde el portal público.
+    \item \textbf{Sin interconexión directa con sistemas externos de proveedores (EDI/API):} La comunicación de compras y recepciones con proveedores se realiza mediante gestión interna del usuario; no se contemplan interfaces de intercambio electrónico de datos (EDI) o Webhooks para la colocación automatizada de pedidos en los sistemas de abasto de distribuidores mayoristas.
+    \item \textbf{Interacción con periféricos de hardware estándar:} El sistema se comunica con lectores de códigos de barras (interfaz emulada de teclado USB/Bluetooth) e impresoras de tickets convencionales a través de los controladores de impresión estándar del sistema operativo y del navegador web. No incluye desarrollo de controladores nativos de bajo nivel para periféricos industriales privativos o apertura de gavetas por puerto serie RS-232.
+    \item \textbf{Entorno operacional enfocado en sucursal única o comunitaria:} Aunque la base de datos cuenta con estructura para catalogar sucursales, la lógica de negocio actual no contempla transferencias automatizadas de stock ni balanceo de inventario entre centros de distribución remotos de cadenas farmacéuticas a gran escala.
 \end{enumerate}
 
-\section{Problemática}
+\section{Marco de Referencia Tecnológico y Normativo}
 
+El marco de referencia del proyecto se articula en tres dimensiones fundamentales: la conceptual-teórica de ingeniería de software, la tecnológica implementada en el repositorio y el marco regulatorio sanitario mexicano.
 
-\section{Justificación}
+\subsection{Fundamentos Teóricos y Conceptuales de Software}
+El desarrollo del sistema se rige bajo el patrón arquitectónico Modelo-Vista-Controlador (MVC) \cite{pressman2014, sommerville2011}, el cual desacopla la lógica de negocios y las reglas de dominio (Modelos) de la interfaz con el usuario (Vistas), mediadas por componentes de control (Controladores) que orquestan las peticiones HTTP. En el dominio de las bases de datos relacionales, el diseño del esquema cumple rigurosamente con la Tercera Forma Normal (3FN) \cite{elmasri2016}, eliminando redundancias y anomalías de actualización. Asimismo, las operaciones críticas de descuento de existencias y cobro se encapsulan bajo transacciones de base de datos que garantizan las propiedades ACID, previniendo discrepancias de stock ante accesos concurrentes.
 
+Desde la perspectiva logística, el sistema incorpora el principio FEFO (\textit{First Expired, First Out}), criterio universalmente recomendado por las Buenas Prácticas de Almacenamiento Farmacéutico, que establece que el lote cuya fecha de vencimiento sea más próxima debe ser el primero en despacharse comercialmente, complementado por el principio FIFO (\textit{First In, First Out}) en productos no perecederos.
+
+\subsection{Fundamentos Tecnológicos del Repositorio}
+La materialización del repositorio se consolida sobre un conjunto de tecnologías web robustas y consolidadas:
+\begin{itemize}
+    \item \textbf{PHP 8.4 y Laravel Framework:} Empleado como motor backend por sus capacidades de tipado estricto, constructor property promotion, enrutamiento semántico, inyección de dependencias y el ORM Eloquent, el cual gestiona relaciones relacionales complejas (1:N, N:M) entre medicamentos, recetas, lotes y ventas \cite{otwell2024laravel}.
+    \item \textbf{MariaDB Server:} Motor de base de datos relacional de código abierto que utiliza el motor de almacenamiento transaccional InnoDB, con soporte para claves foráneas con integridad referencial, índices estructurados y optimizador de consultas.
+    \item \textbf{Tailwind CSS v4 y Vite:} Framework CSS utilitario articulado con el motor de plantillas Blade y el empaquetador Vite, permitiendo el despliegue del sistema de diseño \textit{Clinical Precision UI}. Este sistema emplea una paleta de colores médicos de alto contraste (\#022B3A Deep Petroleum Navy, \#1F7A8C Clinical Teal, \#BFDBF7 Pale Sky), tipografías claras (Plus Jakarta Sans con cifras tabulares para valores numéricos) y componentes visuales ergonómicos alineados con las directrices de accesibilidad web WCAG AA \cite{w3c2018wcag}.
+\end{itemize}
+
+\subsection{Marco Normativo y Sanitario}
+En congruencia con el marco jurídico sanitario de México, el sistema incorpora controles informáticos alineados con las disposiciones de la Ley General de Salud y la normatividad emitida por la Secretaría de Salud y COFEPRIS:
+\begin{itemize}
+    \item \textbf{NOM-072-SSA1-2012:} Norma que rige el etiquetado de medicamentos y exige la plena trazabilidad del número de lote y fecha de caducidad en cualquier registro mercantil y de dispensación \cite{nom072ssa1}.
+    \item \textbf{Control de Fármacos de Fracción II a IV:} Mecanismos de validación exigidos para la venta y retención de recetas médicas de antibióticos y sustancias psicotrópicas, registrando de forma obligatoria la cédula profesional del médico, la vigencia de la receta y la cantidad máxima dispensada de acuerdo con la regulación de COFEPRIS \cite{cofepris2020}.
+\end{itemize}

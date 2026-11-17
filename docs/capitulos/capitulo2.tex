@@ -1,67 +1,79 @@
-\chapter{Marco Teórico.}
+\chapter{Marco Teórico}
 
-En el desarrollo de sistemas de control para vehículos aéreos no tripulados (UAVs), los Vehículos de Despegue y Aterrizaje Vertical (VTOL, por sus siglas en inglés) y sus variantes Planas (PVTOL) han captado una atención significativa debido a sus aplicaciones en diversas áreas como la vigilancia \cite{johnson1997arti}, entrega de paquetes \cite{9129495} y exploración \cite{5278262}. Este capítulo aborda los principios teóricos que respaldan el diseño y control de estos vehículos, incluyendo modelos matemáticos y técnicas avanzadas de control.
-En primer lugar, se describen los enfoques de modelado matemático utilizados para representar el comportamiento dinámico de los VTOL y PVTOL. Estos modelos son esenciales para comprender y predecir las respuestas del sistema ante diferentes estímulos. Particularmente, se emplea el formalismo de Euler-Lagrange, un método robusto y ampliamente aceptado en la dinámica de sistemas mecánicos.
+El desarrollo de un sistema informático para la gestión integral de establecimientos farmacéuticos demanda un sustento conceptual interdisciplinario que amalgama principios rigurosos de la ingeniería de software, la teoría de bases de datos relacionales, la logística de inventarios perecederos y la normatividad sanitaria aplicable a insumos para la salud. Este capítulo expone los fundamentos teóricos y metodológicos que respaldan la concepción, diseño y construcción del sistema \textit{Vitalis PharmaSys}.
 
-\section{Sección}
+\section{Arquitectura de Software y Patrones de Diseño Web}
 
-La capacidad de despegue y aterrizaje vertical (VTOL) es muy apreciada en los vehículos aéreos no tripulados (UAV) y tripulados (MAV), siempre que se alcance un rendimiento de vuelo comparable. La tecnología VTOL no solo resulta muy adecuada para los UAV debido a los requisitos de misión y la necesidad de ocultación, sino que también es de gran importancia para los MAV, tanto en aplicaciones militares como civiles, debido a las ventajas que ofrece, como una menor o incluso nula dependencia de aeropuertos o campos de aviación.
+En el ámbito de los sistemas de información contemporáneos, la adopción de patrones arquitectónicos desacoplados constituye una práctica indispensable para garantizar atributos de calidad tales como la mantenibilidad, escalabilidad, seguridad y testeabilidad del software \cite{pressman2014, sommerville2011}.
 
-\section{Sección 2}
+\subsection{El Patrón Arquitectónico Modelo-Vista-Controlador (MVC)}
+El patrón Modelo-Vista-Controlador postula la separación de la aplicación en tres capas de responsabilidad claramente delimitadas:
+\begin{itemize}
+    \item \textbf{Modelo:} Encapsula la lógica de dominio, las entidades de negocio y las operaciones de acceso a datos. En el contexto de \textit{Vitalis PharmaSys}, los modelos representan abstracciones de medicamentos, lotes, recetas, ventas, compras y bitácoras operacionales.
+    \item \textbf{Vista:} Corresponde a la capa de presentación que interactúa con el usuario final, encargada de renderizar la interfaz gráfica a través de plantillas HTML dinámicas generadas mediante el motor Blade de Laravel.
+    \item \textbf{Controlador:} Actúa como intermediario orquestador; intercepta las solicitudes HTTP entrantes enviadas por el cliente, valida los datos de entrada a través de objetos de petición específicos (\textit{Form Requests}), invoca las operaciones de negocio pertinentes en los modelos y determina la vista o respuesta serializada que debe ser retornada.
+\end{itemize}
 
-El modelo PVTOL (Plataforma Vertical Despegue y Aterrizaje) describe el movimiento vertical de un objeto en un plano, caracterizado por tres grados de libertad $(x, y, \phi)$ que corresponden a la posición y la orientación del objeto en dicho plano. Este sistema incluye dos propulsores independientes que generan fuerzas y momentos en la máquina voladora, como se muestra en la figura \ref{fig1:PVTOL}. Es importante destacar que el PVTOL es un sistema subactuado, ya que aunque tiene tres grados de libertad, solo cuenta con dos entradas para su control. Debido a esta característica, el PVTOL constituye un desafío significativo en el ámbito del control no lineal \cite{lin1999robust}.
+\subsection{El Patrón Active Record y Mapeo Objeto-Relacional (ORM)}
+El acceso a la persistencia se estructura a través del mapeador objeto-relacional Eloquent, el cual implementa el patrón de diseño \textit{Active Record} \cite{otwell2024laravel}. Bajo este enfoque, cada tabla del esquema relacional está asociada de manera unívoca a una clase de modelo, y cada fila de dicha tabla se representa como una instancia orientada a objetos. Este mecanismo abstrae la escritura de consultas SQL nativas, proveyendo constructores de consultas protegidos por parametrización obligatoria de sentencias, lo cual suprime las vulnerabilidades de inyección SQL y facilita la definición explícita de relaciones relacionales de cardinalidad uno a muchos ($1:N$) y muchos a muchos ($N:M$).
 
+\section{Gestión de Bases de Datos Relacionales y Transacciones ACID}
 
-\subsection{Subsección}
-El modelado y diseño de control para plataformas UAV es un trabajo difícil debido a su complicada estructura no lineal y subactuada, donde su comportamiento es función de efectos aerodinámicos, estructura mecánica, perturbaciones, incertidumbre, etc. 
+La confiabilidad operativa de una farmacia depende críticamente de la consistencia matemática de sus inventarios y finanzas. Para ello, el repositorio integra el motor MariaDB bajo la conformación de tablas InnoDB.
 
-\section{Modelos matemáticos.}
+\subsection{Normalización Relacional}
+El diseño de la base de datos se estructuró conforme a las reglas de normalización formal hasta la Tercera Forma Normal (3FN) \cite{elmasri2016}:
+\begin{enumerate}
+    \item \textbf{Primera Forma Normal (1FN):} Se eliminan grupos repetitivos y atributos multivaluados, garantizando la atomicidad de cada columna (e.g., desglosando componentes de dosis y presentaciones en campos atómicos).
+    \item \textbf{Segunda Forma Normal (2FN):} Estando en 1FN, todos los atributos no clave dependen funcionalmente de manera completa de la clave primaria, eliminando dependencias parciales en tablas con claves compuestas.
+    \item \textbf{Tercera Forma Normal (3FN):} Estando en 2FN, se erradican las dependencias transitivas, asegurando que ningún atributo no clave dependa de otro atributo no clave. Por ejemplo, los datos del laboratorio o proveedor no se almacenan redundantemente en la tabla de medicamentos, sino que se vinculan mediante identificadores foráneos forzados por restricciones de integridad referencial (\textit{Foreign Keys}).
+\end{enumerate}
 
-Para entender los sistemas, es esencial desarrollar modelos matemáticos que los representen con exactitud. Un modelo de un sistema se describe como una representación de sus características relevantes, y el proceso de abstracción necesario para crear esta representación se conoce como modelado. El modelo es una versión simplificada de una realidad compleja; el término \say{modelar}se refiere a crear una descripción que capture de manera precisa un sistema y sus actividades. Los modelos científicos se desarrollan para realizar inferencias sobre ciertos aspectos de sistemas reales previamente observados. Este proceso de creación y utilización de un modelo se ilustra en la figura \ref{fig: tipos de modelo} a). Estos modelos se pueden clasificar de acuerdo al conocimiento previo sobre el proceso ilustrados en la figura \ref{fig: tipos de modelo} b).
+\subsection{Propiedades Transaccionales ACID}
+En operaciones concurrentes de dispensación y cobro, una venta involucra simultáneamente: la creación de la cabecera de venta, la inserción de partidas en el detalle, el descuento de existencias sobre lotes específicos, el registro del comprobante de receta médica y el asiento contable en bitácora. Para asegurar la integridad absoluta ante fallos imprevistos o concurrencia de terminales, estas operaciones se ejecutan bajo bloques transaccionales que satisfacen las propiedades ACID \cite{elmasri2016}:
+\begin{itemize}
+    \item \textbf{Atomicidad (Atomicity):} La transacción se ejecuta como una unidad indivisible; si cualquier consulta o validación falla, se efectúa una reversión total (\textit{rollback}), impidiendo estados intermedios inconsistentes (e.g., cobrar un producto sin descontar su stock).
+    \item \textbf{Consistencia (Consistency):} La base de datos transita únicamente de un estado válido a otro, respetando todas las reglas de integridad de datos y restricciones de cardinalidad.
+    \item \textbf{Aislamiento (Isolation):} Las operaciones simultáneas de dos o más cajeros sobre el mismo lote se gestionan de forma aislada mediante bloqueos a nivel de fila (\textit{row-level locking}), previniendo condiciones de carrera (\textit{race conditions}).
+    \item \textbf{Durabilidad (Durability):} Una vez confirmada la transacción mediante \textit{commit}, las modificaciones de inventario y saldos persisten de manera inmutable incluso ante caídas súbitas del suministro eléctrico.
+\end{itemize}
 
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=\textwidth, height=8cm]{imagenes/esquema_modelado.png}
-    \caption{Sistema de modelado.}
-    \label{fig: tipos de modelo}
-\end{figure}
+\section{Logística Farmacéutica: Estrategias FEFO y FIFO}
 
-Otra forma de modelar un sistema es mediante modelos matemáticos, los cuales replican las relaciones de entrada(s) - salida(s) utilizando expresiones matemáticas. Cuando existe una relación lineal entre la entrada y la salida, el modelo matemático se expresa como:
-\begin{equation}
-     y(t) = u(t)k_{p}
-     \label{eq_modelo}
-\end{equation}
+El control de inventario farmacéutico presenta complejidades singulares debido a la naturaleza perecedera de los medicamentos y la estricta vigencia terapéutica de los principios activos.
 
-Donde $y(t)$ es la salida, $u(t)$ es la entrada del sistema, y $k_{p}$ es la constante de proporcionalidad. No obstante, la ecuación (\ref{eq_modelo}) implica que cualquier cambio en la entrada se reflejará instantáneamente en la salida, lo cual no es cierto en sistemas reales, ya que la salida requiere tiempo para ajustarse. Esta relación se cumple únicamente cuando se ha alcanzado un tiempo suficiente para estabilizarse, conocido como la condición de estado estable, y puede representarse como:\\
-\textit{El Valor en estado estable de $u(t)$ = $y(t)$ por el Valor en estado estable de $k_{p}$}
-\begin{equation}
-    k_{p} = \frac{y(t)}{u(t)}
-\end{equation}
-
-Donde $k_{p}$ se refiere a la ganancia del sistema o función de transferencia. Así, una función de transferencia se define como la relación entre la salida en estado estable y la entrada en estado estable de un sistema.
-
- 
-\subsection{Formalismo de Euler-Lagrange.}
-
-La formulación Lagrangiana proporciona una forma de modelar la dinámica de un robot al analizar el balance de energía. En este enfoque, el robot se conceptualiza como una entidad cerrada, y las ecuaciones derivadas se centran únicamente en la energía almacenada, representada a través de las energías cinética y potencial. Para un robot dado, los resultados obtenidos mediante esta formulación son idénticos a los obtenidos mediante la formulación de Newton-Euler.
-El Lagrangiano es una función escalar definida como la diferencia entre las energías cinética y potencial de un sistema mecánico, en función de las llamadas coordenadas generalizadas \cite{torres2002robots}. En la figura \ref{fig 2_2: Esquema de Euler_lagrange} se desarrolla en detalle la formulación Lagrangiana.
-
+\subsection{El Principio FEFO (First Expired, First Out)}
+A diferencia de los comercios generales donde prevalece la política FIFO (\textit{First In, First Out}), la administración farmacéutica exige primordialmente la aplicación de la regla FEFO (Primero en Expirar, Primero en Salir) \cite{cofepris2020}. Esta estrategia logística estipula que la prioridad de rotación y venta de un medicamento no está determinada por la fecha en que el producto ingresó a la bodega, sino por su fecha de caducidad certificada por el fabricante.
 
 \begin{equation}
-J_{i}=
-    \begin{bmatrix}
-        \lambda_{i} & 1           & 0      &...  & 0  \\
-        0           & \lambda_{i} & 1      & ...& 0 \\
-        \vdots      & \vdots      & \ddots & \ddots & \vdots \\
-             0   &    0    &  ... & \lambda_{i} & 1   \\
-           0 &   0   &  ...       &  0   & \lambda_{i} \\
-    \end{bmatrix}_{m \times m}
+    \text{Prioridad de Despacho} = \arg\min_{l \in L_{m}} (\text{FechaCaducidad}_{l})
+    \label{eq:fefo}
 \end{equation}
 
-Donde $J_{i}$ es el bloque de Jordan asociado al eigenvalor $\lambda_{i}$  en $A$ y $m$ es el orden del bloque de Jordan. Esta representación es útil porque simplifica el análisis de la dinámica de sistemas lineales, especialmente cuando $A$ no es diagonalizable. La solución del sistema en términos de la forma de Jordan es:
+Donde $L_{m}$ representa el conjunto de lotes activos con existencia disponible para el medicamento $m$. En \textit{Vitalis PharmaSys}, el motor de ventas consulta los lotes disponibles ordenados ascendentemente por fecha de vencimiento, asignando automáticamente las unidades a descontar del lote más próximo a caducar, minimizando sustancialmente las mermas por obsolescencia.
 
-\begin{equation}
-     exp(at) = P exp(Jt) P^{-1} = \sum_{i=1}^{r}\sum_{k=1}^{m_{i}}t^{k-1}exp(\lambda_{i}t)R_{ik}
-\end{equation}
+\section{Diseño de Interfaces de Usuario y Accesibilidad en Salud}
 
-Donde $m_{i}$ es el orden del bloque de  Jordan asociado al eigenvalor $A$. El siguiente teorema caracteriza las propiedades de estabilidad del origen.
+La interacción humana con sistemas clínicos demanda interfaces claras que minimicen la sobrecarga cognitiva del usuario en momentos de alta exigencia laboral.
+
+\subsection{Filosofía de Diseño Clinical Precision UI}
+El sistema adopta el paradigma de diseño \textit{Clinical Precision UI}, fundamentado en tres pilares de interacción:
+\begin{itemize}
+    \item \textbf{Espacio Full-Canvas:} Sustituye las barras laterales estáticas y pesadas por una cuadrícula fluida de 12 columnas que aprovecha el 100\% del ancho de la pantalla, incrementando el área visible para tablas de inventarios y detalles de facturación.
+    \item \textbf{Lanzador de Aplicaciones Global (9 Puntos):} Menú flotante desplegable en cuadrícula $3 \times 3$ que provee acceso contextual instantáneo a los módulos neurálgicos (Dashboard, Inventario, Ventas, Recetas, Pacientes, Compras, Reportes, Usuarios y Ajustes) sin saturar la vista activa.
+    \item \textbf{Paleta Cromática Clínica Controlada:} Uso de tonos petróleo (\#022B3A) para elementos institucionales, cerceta clínico (\#1F7A8C) para acciones interactivas primarias y cielo pálido (\#BFDBF7) para acentos informativos suaves, cumpliendo con las pautas de contraste de las directrices WCAG 2.1 nivel AA \cite{w3c2018wcag}.
+\end{itemize}
+
+\section{Marco Regulatorio Sanitario en México}
+
+El funcionamiento de un sistema farmacéutico no puede concebirse al margen de las disposiciones emanadas por la Secretaría de Salud y la Comisión Federal para la Protección contra Riesgos Sanitarios (COFEPRIS):
+
+\subsection{Trazabilidad de Lotes y Fechas de Caducidad (NOM-072-SSA1-2012)}
+La Norma Oficial Mexicana NOM-072-SSA1-2012 establece los requerimientos obligatorios de etiquetado para medicamentos, estipulando la necesidad de identificar inequívocamente el número de lote de producción y la fecha de caducidad en el empaque primario y secundario \cite{nom072ssa1}. El sistema refleja esta exigencia en su modelo de datos al no permitir el ingreso de mercancía sin la vinculación estricta de dichos atributos.
+
+\subsection{Dispensación y Retención de Recetas Médicas}
+De acuerdo con los artículos aplicables de la Ley General de Salud y los lineamientos de COFEPRIS para antibióticos y fármacos controlados \cite{cofepris2020}:
+\begin{enumerate}
+    \item \textbf{Antibióticos (Fracción IV):} Requieren la retención y registro de la receta médica, la cual únicamente puede ser surtida durante el periodo de tratamiento prescrito por el facultativo.
+    \item \textbf{Psicotrópicos y Estupefacientes (Fracciones I, II y III):} Exigen una fiscalización rigurosa que incluye el asiento ineludible del nombre del médico, número de cédula profesional, domicilio de prescripción, fecha de expedición y registro de la cantidad surtida. El módulo de dispensación de \textit{Vitalis PharmaSys} bloquea la confirmación de la venta si estos datos sanitarios no han sido debidamente capturados y validados.
+\end{enumerate}
