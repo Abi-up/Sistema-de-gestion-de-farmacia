@@ -1,2 +1,115 @@
-\chapter{Desarrollo}
-Desarrollo del proyecto, identifica la metodología  Agiles (sea SCRUM, KABAN, etc. )describe cada una de las fases del proceso de desarrollo de su proyecto. 
+\chapter{Desarrollo del Proyecto}
+
+El presente capítulo detalla la metodología y el proceso de ingeniería aplicado en la construcción del sistema de información farmacéutica \textit{Vitalis PharmaSys}. Se expone el marco metodológico adoptado, justificando su pertinencia frente a esquemas ágiles tradicionales, describiendo las fases del ciclo de trabajo operativo, el control de versiones y la secuencia cronológica de incrementos funcionales que dieron origen a la plataforma.
+
+\section{Metodología de Desarrollo: Enfoque Iterativo e Incremental}
+
+Para la concepción e implementación de \textit{Vitalis PharmaSys}, se adoptó un enfoque de \textbf{desarrollo iterativo e incremental con flujo de trabajo continuo}, fundamentado en los valores y principios del Manifiesto Ágil \cite{pressman2014, sommerville2011}.
+
+\subsection{Justificación de la Selección Metodológica}
+
+En el ámbito de la ingeniería de software aplicada a entornos de salud comunitaria, suele atribuirse de forma generalizada el uso de marcos de trabajo como \textit{Scrum} o \textit{Kanban} formal. No obstante, un análisis riguroso de la dinámica de trabajo del equipo revela que la adopción nominal de dichos marcos no correspondería con la realidad operativa del proyecto:
+
+\begin{itemize}
+    \item \textbf{Ausencia de ceremonias rígidas de Scrum:} El desarrollo no estuvo supeditado a iteraciones de tiempo fijo cerradas (\textit{sprints} de 2 a 4 semanas), reuniones diarias de sincronización (\textit{daily standups}), estimaciones mediante puntos de historia en sesiones formales de planificación (\textit{sprint planning}) ni sesiones de retrospectiva al término de cada intervalo.
+    \item \textbf{Flexibilidad de roles:} En lugar de designar de manera restrictiva figuras como \textit{Product Owner} o \textit{Scrum Master}, los integrantes del equipo colaboraron de forma multifuncional, asumiendo conjuntamente responsabilidades de análisis normativo sanitario, modelado de bases de datos, programación en el framework y control de calidad.
+    \item \textbf{Flujo continuo frente a tableros formales:} Si bien se priorizó la ejecución de requerimientos en función de dependencias técnicas y operativas, no se implementó un tablero Kanban reglamentario con límites estrictos de trabajo en progreso (\textit{WIP limits}) ni métricas estadísticas de tiempo de ciclo (\textit{cycle time}).
+\end{itemize}
+
+Por tales motivos, se definió con precisión y rigor profesional que el proyecto opera bajo un modelo de \textbf{desarrollo iterativo e incremental con flujo continuo}. Este enfoque conjuga la disciplina técnica del ciclo de vida clásico con la adaptabilidad ágil requerida para responder oportunamente a imprevistos técnicos, refinamientos en las validaciones de recetas y mejoras ergonómicas de la interfaz.
+
+\subsection{Pilares del Enfoque Iterativo e Incremental}
+
+El modelo seleccionado se sustenta en cuatro pilares complementarios:
+
+\begin{enumerate}
+    \item \textbf{Naturaleza Iterativa:} El software se perfecciona mediante ciclos sucesivos de análisis, codificación, prueba y refactorización. Las funcionalidades no se consideran concluidas en su primera versión; por el contrario, son sujetas a revisiones periódicas que corrigen deficiencias lógicas o ajustan reglas de negocio (e.g., optimización del algoritmo de asignación de lotes FEFO tras pruebas de concurrencia).
+    \item \textbf{Naturaleza Incremental:} El sistema crece de manera modular y escalonada. Cada iteración produce un incremento de software operativo que se suma a la base preexistente, permitiendo verificar de forma temprana la cohesión entre módulos (iniciando con la gestión de catálogos elementales hasta alcanzar la dispensación transaccional con retención de receta médica).
+    \item \textbf{Flujo de Trabajo Continuo:} La transición entre actividades se produce conforme los requerimientos son completados y verificados, suprimiendo los tiempos muertos asociados al cierre artificial de periodos temporales fijos.
+    \item \textbf{Trazabilidad Mediante Control de Versiones:} El avance técnico se gestiona rigurosamente a través del sistema de control de versiones distribuido Git y el repositorio remoto GitHub. Cada modificación sustancial, corrección de defectos o incorporación de modelos es documentada mediante confirmaciones (\textit{commits}) atómicos y ramas temáticas, asegurando la auditoría del código fuente y permitiendo la reversibilidad ante eventuales regresiones.
+\end{enumerate}
+
+\section{Fases del Proceso de Desarrollo por Módulo}
+
+El desarrollo de cada módulo o componente funcional dentro de \textit{Vitalis PharmaSys} siguió un ciclo estandarizado y reproducible compuesto por seis etapas consecutivas, tal como se sintetiza en la Tabla \ref{tab:etapas_desarrollo}.
+
+\begin{table}[H]
+\centering
+\caption{Etapas del ciclo de desarrollo iterativo e incremental aplicado en el proyecto.}
+\label{tab:etapas_desarrollo}
+\renewcommand{\arraystretch}{1.3}
+\begin{tabularx}{\textwidth}{|c|X|X|}
+\hline
+\rowcolor[HTML]{E5E9EB}
+\textbf{Etapa} & \textbf{Actividad Principal} & \textbf{Artefacto / Resultado Producido} \\ \hline
+\textbf{1} & Creación de modelos relacionales, migraciones y definición de restricciones de integridad. & Archivos de migración de base de datos (\texttt{.php}) y clases de modelo Eloquent. \\ \hline
+\textbf{2} & Implementación de controladores, enrutamiento y validación estricta de entradas. & Clases \texttt{Controller} y peticiones de formulario (\textit{Form Requests}). \\ \hline
+\textbf{3} & Construcción de lógica de negocio, servicios auxiliares y reglas sanitarias. & Métodos transaccionales, consultas optimizadas y algoritmos (e.g., cálculo FEFO). \\ \hline
+\textbf{4} & Elaboración de la interfaz de usuario bajo la guía visual \textit{Clinical Precision UI}. & Vistas dinámicas en motor Blade estilizadas con Tailwind CSS. \\ \hline
+\textbf{5} & Ejecución de pruebas funcionales, verificación transaccional y corrección de incidencias. & Depuración de fallos, consistencia de datos ACID y validación de flujos. \\ \hline
+\textbf{6} & Integración continua, documentación de cambios y registro en Git/GitHub. & Confirmaciones (\textit{commits}) semánticas e integración de ramas de trabajo. \\ \hline
+\end{tabularx}
+\end{table}
+
+A continuación, se detalla el contenido técnico y las buenas prácticas aplicadas en cada una de las seis etapas:
+
+\subsection{Etapa 1: Modelado de Datos y Migraciones}
+En esta fase inicial, se abstrae la entidad del dominio farmacéutico (e.g., medicamentos, lotes, proveedores, compras) y se traduce en una migración de Laravel. Las migraciones actúan como un sistema de control de versiones para la base de datos MariaDB, garantizando que el esquema sea reproducible en cualquier estación de trabajo. Se declaran llaves primarias, llaves foráneas con eliminación restrictiva para preservar la integridad referencial, índices de búsqueda e índices únicos (como códigos de barras y claves sanitarias). Paralelamente, se define la clase modelo en Eloquent, estableciendo relaciones de cardinalidad (e.g., \texttt{hasMany}, \texttt{belongsTo}) y asignaciones masivas protegidas (\texttt{\$fillable}).
+
+\subsection{Etapa 2: Controladores y Validación de Peticiones}
+Se programan los controladores de recursos encargados de gestionar el ciclo de vida HTTP (índices, creación, persistencia, edición y actualización). Con el propósito de respetar el principio de responsabilidad única, las validaciones de entrada no se incrustan en el controlador, sino que se delegan a clases \textit{Form Request}. Estas clases aseguran que los datos enviados por los usuarios cumplan con restricciones tipográficas, rangos numéricos positivos en precios y existencias, existencia previa de identificadores foráneos y fechas válidas en caducidades.
+
+\subsection{Etapa 3: Lógica de Negocio y Servicios Transaccionales}
+En esta etapa se implementan las reglas sustantivas de la operación farmacéutica. Entre las más representativas se encuentran:
+\begin{itemize}
+    \item \textbf{Mecanismo de Despacho FEFO:} Algoritmo que consulta los lotes disponibles del medicamento requerido, los clasifica en orden ascendente por fecha de expiración y descuenta las cantidades de forma atómica sobre el lote más próximo a vencer.
+    \item \textbf{Bloques Transaccionales ACID:} Todas las operaciones de alta concurrencia que modifican saldos contables o existencias de bodega (como ventas, recepciones o devoluciones) se encapsulan mediante \texttt{DB::transaction()}. Esto asegura que, ante cualquier inconsistencia o excepción en tiempo de ejecución, se aplique un \textit{rollback} integral, impidiendo estados parciales erróneos.
+    \item \textbf{Control y Retención de Recetas:} Lógica de verificación que bloquea la venta de antibióticos y fármacos controlados a menos que se ingresen los datos completos del médico prescriptor (cédula profesional, nombre e institución) y se vincule formalmente a la transacción.
+\end{itemize}
+
+\subsection{Etapa 4: Interfaces de Usuario (Blade y Tailwind CSS)}
+Se diseñan las interfaces gráficas aplicando los estándares estéticos y de ergonomía del sistema de diseño \textit{Clinical Precision UI}. Las vistas se componen mediante directivas Blade y componentes reutilizables (alertas, modales de confirmación, tablas de datos paginadas e indicadores de estado). Se emplea Tailwind CSS para proveer una paleta de colores coherente, garantizando altos contrastes legibles (cumplimiento WCAG AA), retroalimentación visual clara ante estados de error o éxito, y total adaptabilidad en pantallas de computadoras de escritorio y terminales de cobro.
+
+\subsection{Etapa 5: Pruebas Funcionales y Corrección de Errores}
+Cada funcionalidad implementada es sometida a pruebas exhaustivas en el entorno local antes de considerarse lista para integración. Se evalúan casos límite, tales como:
+\begin{itemize}
+    \item Intentos de cobro de medicamentos con existencia agotada.
+    \item Registro de lotes con fechas de caducidad pretéritas.
+    \item Procesamiento de ventas simultáneas sobre un mismo lote de producto.
+    \item Discrepancias entre cantidades solicitadas y unidades recibidas en órdenes de compra.
+\end{itemize}
+Cualquier anomalía identificada es corregida de inmediato dentro del mismo ciclo, ajustando el modelo, la validación o el controlador según corresponda.
+
+\subsection{Etapa 6: Control de Versiones con Git y GitHub}
+Una vez que el módulo supera las pruebas de integración y funciona de forma estable, los cambios se preparan para su registro formal. Se ejecutan instrucciones de control de versiones creando confirmaciones estructuradas que describen la naturaleza del cambio (e.g., adición de módulo, corrección de regla de validación o ajuste de vistas). Finalmente, los avances locales son empujados (\textit{push}) al repositorio remoto en GitHub, manteniendo la base de código centralizada, sincronizada y accesible para los miembros del equipo.
+
+\section{Cronología de Incrementos Funcionales del Sistema}
+
+La evolución de \textit{Vitalis PharmaSys} se articuló en siete incrementos funcionales mayores. Cada incremento representó una entrega acumulativa de valor que sirvió de cimiento para la siguiente etapa:
+
+\begin{enumerate}
+    \item \textbf{Incremento I: Módulos de Catálogos Maestros.}
+    Implementación del núcleo de catálogos base para la parametrización del sistema: gestión de categorías terapéuticas, formas farmacéuticas / presentaciones (tabletas, jarabes, pomadas), marcas comerciales, laboratorios fabricantes y directorio de empresas proveedoras.
+    
+    \item \textbf{Incremento II: Autenticación, Seguridad y Roles (RBAC).}
+    Configuración del esquema de seguridad y control de acceso basado en roles (\textit{Role-Based Access Control}). Se definieron permisos específicos para administradores, encargados de inventario y cajeros/despachadores, incorporando el cifrado de contraseñas mediante algoritmos seguros (Bcrypt) y el registro inmutable de acciones en bitácora.
+    
+    \item \textbf{Incremento III: Núcleo de Medicamentos y Recetas Médicas.}
+    Estructuración del inventario de productos médicos, vinculando cada producto con su clave sanitaria, concentración, fabricante y régimen de venta (libre dispensación o venta controlada bajo receta médica). Se implementó el módulo de recetas con campos obligatorios para la supervisión de prescripciones de antibióticos y controlados.
+    
+    \item \textbf{Incremento IV: Abastecimiento, Compras y Recepciones de Mercancía.}
+    Diseño del flujo de adquisiciones: creación de órdenes de compra dirigidas a proveedores autorizados, registro de costos pactados y módulo de recepción física en almacén, donde se coteja la mercancía entrante contra la orden de compra antes de autorizar su ingreso al stock disponible.
+    
+    \item \textbf{Incremento V: Gestión de Lotes, Trazabilidad y Algoritmo FEFO.}
+    Integración de la trazabilidad individualizada por número de lote, fecha de fabricación y fecha de caducidad. Se programó el sistema de semaforización de caducidades (alertas para vencimientos a 30, 60 y 90 días) y la regla logística FEFO (\textit{First Expired, First Out}) para orientar el despacho automatizado de productos.
+    
+    \item \textbf{Incremento VI: Punto de Venta (POS) y Transacciones de Dispensación.}
+    Desarrollo del módulo de venta en mostrador para atención al público: lectura de códigos de barras, adición ágil de productos al carrito, retención y vinculación de recetas para medicamentos controlados, cálculo de importes, emisión de comprobantes de venta y descuento transaccional atómico de inventarios.
+    
+    \item \textbf{Incremento VII: Devoluciones, Ajustes y Auditoría Integral.}
+    Incorporación del módulo de devoluciones a proveedores y cancelaciones de venta de clientes, actualización reversiva de existencias, kárdex histórico de movimientos (\texttt{movimientos\_inventario}) y bitácora de auditoría para garantizar el cumplimiento normativo exigido por las autoridades sanitarias.
+\end{enumerate}
+
+\section{Resumen del Capítulo}
+
+La adopción de un modelo de desarrollo iterativo e incremental con flujo continuo permitió al equipo de desarrollo avanzar de manera ordenada y adaptativa en la construcción de \textit{Vitalis PharmaSys}. Lejos de forzar la adopción artificial de ceremonias y roles de marcos como Scrum, el equipo priorizó la entrega constante de módulos funcionales y verificados, asegurando la consistencia de los datos, la adherencia a la normatividad sanitaria mexicana y la estabilidad técnica del sistema en cada etapa del proyecto.
