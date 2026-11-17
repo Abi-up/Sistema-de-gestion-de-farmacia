@@ -12,12 +12,15 @@
 
   {{-- Script de detección temprana de tema --}}
   <script>
-    if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+    // Apply stored theme; default to light mode regardless of OS preference
+    const theme = localStorage.getItem('theme');
+    if (theme === 'dark') {
       document.documentElement.classList.add('dark');
     } else {
       document.documentElement.classList.remove('dark');
     }
   </script>
+
 
   {{-- Estilos & Scripts (Vite con Fallback Autónomo) --}}
   @if (file_exists(public_path('build/manifest.json')) || file_exists(public_path('hot')))

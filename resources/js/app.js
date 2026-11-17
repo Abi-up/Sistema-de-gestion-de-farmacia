@@ -8,37 +8,41 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // 1. Manejo de Modo Claro / Modo Oscuro
+// 1. Manejo de Modo Claro / Modo Oscuro
 function initTheme() {
-  const savedTheme = localStorage.getItem('theme');
-  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  // The early inline script (in app.blade.php) already applied the saved theme.
+  // Here we only need to synchronize the UI (icons) and register the toggle handler.
 
-  if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
-    document.documentElement.classList.add('dark');
-  } else {
-    document.documentElement.classList.remove('dark');
-  }
-
-  const toggleButtons = document.querySelectorAll('[data-toggle-theme]');
-  toggleButtons.forEach(btn => {
-    btn.addEventListener('click', () => {
-      const isDark = document.documentElement.classList.toggle('dark');
-      localStorage.setItem('theme', isDark ? 'dark' : 'light');
-      updateThemeIcons();
-    });
-  });
-
+  // Update icons according to the current state of the <html> element
   updateThemeIcons();
+
+  // Register click handler once
+  if (!window.__themeToggleInitialized) {
+    const toggleBtn = document.querySelector('[data-toggle-theme]');
+    if (toggleBtn) {
+      toggleBtn.addEventListener('click', () => {
+        const isDark = document.documentElement.classList.toggle('dark');
+        localStorage.setItem('theme', isDark ? 'dark' : 'light');
+        updateThemeIcons();
+      });
+    }
+    window.__themeToggleInitialized = true;
+  }
 }
 
 function updateThemeIcons() {
   const isDark = document.documentElement.classList.contains('dark');
+  // Sun icon shown in dark mode, moon icon shown in light mode
   document.querySelectorAll('[data-icon-theme-sun]').forEach(el => {
-    el.style.display = isDark ? 'block' : 'none';
+    el.classList.toggle('hidden', !isDark);
   });
   document.querySelectorAll('[data-icon-theme-moon]').forEach(el => {
-    el.style.display = isDark ? 'none' : 'block';
+    el.classList.toggle('hidden', isDark);
   });
 }
+
+
+
 
 // 2. Lanzador de Aplicaciones (9 Puntos)
 function initAppLauncher() {
