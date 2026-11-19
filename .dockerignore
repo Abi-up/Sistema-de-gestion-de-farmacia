@@ -1,0 +1,38 @@
+# Control de versiones
+.git
+.gitignore
+.gitattributes
+
+# Entornos y credenciales sensibles (SEGURIDAD CRÍTICA)
+.env
+.env.*
+!.env.example
+!.env.docker.example
+
+# IDEs y editores
+.idea
+.vscode
+.editorconfig
+.claude
+.mcp.json
+boost.json
+AGENTS.md
+CLAUDE.md
+
+# Dependencias (se gestionan dentro del contenedor)
+node_modules
+npm-debug.log
+yarn-error.log
+
+# Almacenamiento y caché de Laravel
+storage/framework/cache/data/*
+storage/framework/sessions/*
+storage/framework/views/*
+storage/logs/*.log
+bootstrap/cache/*.php
+
+# Tests y documentación pesada
+tests
+phpunit.xml
+docs/*.zip
+docs/*.png

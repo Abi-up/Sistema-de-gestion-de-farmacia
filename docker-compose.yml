@@ -1,0 +1,76 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: farmacia_app
+    restart: unless-stopped
+    ports:
+      - "${APP_PORT:-8000}:80"
+      - "${VITE_PORT:-5173}:5173"
+    environment:
+      APP_NAME: "${APP_NAME:-Vitalis PharmaSys}"
+      APP_ENV: "${APP_ENV:-local}"
+      APP_KEY: "${APP_KEY:-}"
+      APP_DEBUG: "${APP_DEBUG:-true}"
+      APP_URL: "${APP_URL:-http://localhost:8000}"
+      DB_CONNECTION: "${DB_CONNECTION:-mariadb}"
+      DB_HOST: mariadb
+      DB_PORT: 3306
+      DB_DATABASE: "${DB_DATABASE:-farmacia_laravel}"
+      DB_USERNAME: "${DB_USERNAME:-farmacia_app}"
+      DB_PASSWORD: "${DB_PASSWORD:-farmacia_secret}"
+    volumes:
+      - ./app:/var/www/html/app
+      - ./bootstrap:/var/www/html/bootstrap
+      - ./config:/var/www/html/config
+      - ./database:/var/www/html/database
+      - ./public:/var/www/html/public
+      - ./resources:/var/www/html/resources
+      - ./routes:/var/www/html/routes
+      - ./storage:/var/www/html/storage
+      - ./composer.json:/var/www/html/composer.json
+      - ./composer.lock:/var/www/html/composer.lock
+      - ./package.json:/var/www/html/package.json
+      - ./vite.config.js:/var/www/html/vite.config.js
+      - ./package-lock.json:/var/www/html/package-lock.json
+      - /var/www/html/vendor
+    networks:
+      - farmacia_network
+    depends_on:
+      mariadb:
+        condition: service_healthy
+
+  mariadb:
+    image: mariadb:13.0
+    container_name: farmacia_mariadb
+    restart: unless-stopped
+    environment:
+      MARIADB_ROOT_PASSWORD: "${DB_ROOT_PASSWORD:-root_password}"
+      MARIADB_DATABASE: "${DB_DATABASE:-farmacia_laravel}"
+      MARIADB_USER: "${DB_USERNAME:-farmacia_app}"
+      MARIADB_PASSWORD: "${DB_PASSWORD:-farmacia_secret}"
+      MYSQL_ROOT_PASSWORD: "${DB_ROOT_PASSWORD:-root_password}"
+      MYSQL_DATABASE: "${DB_DATABASE:-farmacia_laravel}"
+      MYSQL_USER: "${DB_USERNAME:-farmacia_app}"
+      MYSQL_PASSWORD: "${DB_PASSWORD:-farmacia_secret}"
+    ports:
+      - "${FORWARD_DB_PORT:-3307}:3306"
+    volumes:
+      - mariadb_data:/var/lib/mysql
+    networks:
+      - farmacia_network
+    healthcheck:
+      test: ["CMD", "healthcheck.sh", "--connect", "--innodb_initialized"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 15s
+
+networks:
+  farmacia_network:
+    driver: bridge
+
+volumes:
+  mariadb_data:
+    driver: local
